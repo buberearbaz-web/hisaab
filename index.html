@@ -1,0 +1,2672 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hisaab · 40-30-5-5-10-10 budget planner</title>
+<meta name="description" content="Free budget planner that splits your take-home pay 40-30-5-5-10-10 into Needs, Investments, Self improvement, Health, Emergency fund and Family. Tracks spending, saving goals and Zakat. No sign-up, and your data stays on your device.">
+<meta name="theme-color" content="#EDF2EF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0D1311" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2312201A'/%3E%3Ctext x='32' y='45' font-family='Arial,sans-serif' font-size='38' font-weight='700' text-anchor='middle' fill='%23ffffff'%3E%E2%82%B9%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hisaab">
+<meta property="og:title" content="Hisaab: give every rupee a job">
+<meta property="og:description" content="Free budget planner that splits your take-home pay 40-30-5-5-10-10 into Needs, Investments, Self improvement, Health, Emergency fund and Family. Tracks spending, saving goals and Zakat. No sign-up, and your data stays on your device.">
+<meta property="og:url" content="https://buberearbaz-web.github.io/hisaab/">
+<meta property="og:image" content="https://buberearbaz-web.github.io/hisaab/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: env(safe-area-inset-top, 0px); }
+body { margin: 0; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+:root {
+  color-scheme: light;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  --ground: #EDF2EF;
+  --surface: #FFFFFF;
+  --surface-2: #F4F7F5;
+  --ink: #12201A;
+  --ink-2: #43544C;
+  --muted: #62736B;
+  --rule: #D6E0DB;
+  --rule-strong: #B4C3BC;
+  --accent: #1D4FB8;
+  --accent-hover: #163F95;
+  --accent-ink: #FFFFFF;
+  --accent-soft: #E2E9FA;
+  --guilloche: rgba(29, 79, 184, 0.075);
+  --good: #1B7A43;
+  --good-soft: #E0F1E6;
+  --warn: #8F5B00;
+  --warn-soft: #FBEFD6;
+  --bad: #B3302A;
+  --bad-soft: #FBE4E1;
+  --s1: #9a5b2e;
+  --s2: #c8398f;
+  --s3: #7f9a1f;
+  --s4: #1c9cc4;
+  --s5: #6b5bd2;
+  --s6: #e3a21a;
+  --s-other: #8A948F;
+  --backdrop: rgba(12, 22, 18, 0.45);
+  --shadow: 0 1px 2px rgba(18, 32, 26, 0.06), 0 10px 30px rgba(18, 32, 26, 0.10);
+  --f-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --f-body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --ground: #0D1311;
+    --surface: #151D1A;
+    --surface-2: #1B2521;
+    --ink: #E3EBE7;
+    --ink-2: #B2C0B9;
+    --muted: #8D9D96;
+    --rule: #25312C;
+    --rule-strong: #3A4A43;
+    --accent: #86A4F4;
+    --accent-hover: #A3BBF7;
+    --accent-ink: #0D1311;
+    --accent-soft: #1D2944;
+    --guilloche: rgba(134, 164, 244, 0.07);
+    --good: #56C488;
+    --good-soft: #16301F;
+    --warn: #E2A640;
+    --warn-soft: #33260E;
+    --bad: #F2806F;
+    --bad-soft: #3A1B17;
+    --s1: #b5652a;
+    --s2: #cf4a8c;
+    --s3: #7a9420;
+    --s4: #1e9aa6;
+    --s5: #8a68e0;
+    --s6: #c4860a;
+    --s-other: #6F7B76;
+    --backdrop: rgba(0, 0, 0, 0.6);
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 10px 30px rgba(0, 0, 0, 0.45);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --ground: #0D1311;
+  --surface: #151D1A;
+  --surface-2: #1B2521;
+  --ink: #E3EBE7;
+  --ink-2: #B2C0B9;
+  --muted: #8D9D96;
+  --rule: #25312C;
+  --rule-strong: #3A4A43;
+  --accent: #86A4F4;
+  --accent-hover: #A3BBF7;
+  --accent-ink: #0D1311;
+  --accent-soft: #1D2944;
+  --guilloche: rgba(134, 164, 244, 0.07);
+  --good: #56C488;
+  --good-soft: #16301F;
+  --warn: #E2A640;
+  --warn-soft: #33260E;
+  --bad: #F2806F;
+  --bad-soft: #3A1B17;
+  --s1: #b5652a;
+  --s2: #cf4a8c;
+  --s3: #7a9420;
+  --s4: #1e9aa6;
+  --s5: #8a68e0;
+  --s6: #c4860a;
+  --s-other: #6F7B76;
+  --backdrop: rgba(0, 0, 0, 0.6);
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+* { box-sizing: border-box; }
+body { background: var(--ground); color: var(--ink); font: 15px/1.5 var(--f-body); }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.num, .tnum { font-variant-numeric: tabular-nums; }
+
+.app { max-width: 1160px; margin: 0 auto; padding-inline: 16px; padding-block: 8px 120px; }
+@media (min-width: 720px) { .app { padding-inline: 24px; } }
+
+/* Header */
+.top { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-block: 10px; }
+.brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.mark { width: 38px; height: 38px; border-radius: 10px; background: var(--ink); color: var(--surface); display: grid; place-items: center; font: 700 20px/1 var(--f-display); flex: none; }
+.wordmark { font: 800 23px/1 var(--f-display); font-stretch: 122%; letter-spacing: -0.01em; }
+.tagline { font: 500 10.5px/1.2 var(--f-mono); color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 4px; overflow-wrap: anywhere; }
+.month-switch { display: flex; align-items: center; background: var(--surface); border: 1px solid var(--rule); border-radius: 999px; padding: 3px; }
+.month-switch button { border: 0; background: transparent; height: 34px; min-width: 34px; border-radius: 999px; font-weight: 600; font-size: 14px; }
+.month-switch button:hover { background: var(--surface-2); }
+.month-switch .mlabel { padding-inline: 12px; min-width: 148px; }
+.month-switch .arrow { font-size: 18px; line-height: 1; color: var(--ink-2); }
+
+.tabs { display: flex; gap: 2px; border-bottom: 1px solid var(--rule); margin-block: 4px 18px; overflow-x: auto; scrollbar-width: none; }
+.tabs::-webkit-scrollbar { display: none; }
+.tab { appearance: none; border: 0; background: none; padding: 10px 12px; font: 600 14px/1.2 var(--f-body); color: var(--muted); border-bottom: 2px solid transparent; margin-bottom: -1px; white-space: nowrap; }
+.tab:hover { color: var(--ink); }
+.tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); }
+@media (max-width: 480px) { .tab { padding-inline: 9px; font-size: 13.5px; } }
+
+.banner { background: var(--warn-soft); color: var(--warn); border-radius: 10px; padding: 10px 14px; font-weight: 500; margin-bottom: 16px; }
+
+/* Shared pieces */
+.card { background: var(--surface); border: 1px solid var(--rule); border-radius: 14px; padding: 18px; min-width: 0; }
+@media (max-width: 480px) { .card { padding: 14px; border-radius: 12px; } }
+.card-head { display: flex; flex-direction: column; gap: 2px; margin-bottom: 14px; }
+.card-head h2 { font: 700 17px/1.25 var(--f-display); font-stretch: 108%; margin: 0; text-wrap: balance; }
+.sub { margin: 0; color: var(--muted); font-size: 13px; }
+.eyebrow { font: 500 11px/1.3 var(--f-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.grow { flex: 1; }
+.sw { display: inline-block; width: 10px; height: 10px; border-radius: 3px; flex: none; }
+.pill { display: inline-flex; align-items: center; gap: 5px; font: 600 11.5px/1 var(--f-body); padding: 4px 8px; border-radius: 999px; white-space: nowrap; }
+.pill::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.pill.good { color: var(--good); background: var(--good-soft); }
+.pill.warn { color: var(--warn); background: var(--warn-soft); }
+.pill.bad { color: var(--bad); background: var(--bad-soft); }
+.pill.neutral { color: var(--muted); background: var(--surface-2); }
+.tag { font: 500 10px/1 var(--f-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--rule-strong); border-radius: 4px; padding: 2px 4px; vertical-align: 1px; }
+.pos { color: var(--muted); }
+.neg { color: var(--bad); }
+.credit { color: var(--good); }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; border-radius: 10px; border: 1px solid var(--rule-strong); background: var(--surface); padding: 9px 14px; font-weight: 600; font-size: 14px; line-height: 1.1; text-decoration: none; color: var(--ink); }
+.btn:hover { background: var(--surface-2); }
+.btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.btn.primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+.btn.small { padding: 6px 10px; font-size: 13px; border-radius: 8px; }
+.btn.ghost { background: transparent; }
+.btn.danger { color: var(--bad); border-color: color-mix(in oklab, var(--bad) 45%, transparent); background: transparent; }
+.btn.danger.armed { background: var(--bad); color: var(--surface); border-color: var(--bad); }
+.btn:disabled { opacity: 0.55; cursor: progress; }
+.icon-btn { border: 0; background: transparent; width: 32px; height: 32px; border-radius: 8px; font-size: 20px; line-height: 1; color: var(--muted); flex: none; }
+.icon-btn:hover { background: var(--surface-2); color: var(--ink); }
+.linkbtn { border: 0; background: none; padding: 0; color: var(--accent); font-weight: 600; font-size: inherit; text-decoration: underline; text-underline-offset: 2px; }
+
+.empty { text-align: center; padding: 36px 16px; color: var(--muted); }
+.empty strong { display: block; color: var(--ink); font: 700 17px/1.3 var(--f-display); margin-bottom: 6px; }
+.empty .btn { margin-top: 14px; }
+
+/* Onboarding */
+.ob-wrap { max-width: 1120px; margin: 0 auto; padding-inline: 16px; padding-block: 14px 64px; }
+@media (min-width: 720px) { .ob-wrap { padding-inline: 24px; } }
+.ob-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 22px; }
+.ob { display: grid; gap: 24px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 900px) { .ob.two { grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); gap: 40px; align-items: start; } }
+.ob-pitch h1 { font: 800 clamp(30px, 5.2vw, 48px)/1.04 var(--f-display); font-stretch: 116%; letter-spacing: -0.02em; margin: 8px 0 12px; text-wrap: balance; max-width: 17ch; }
+.lede { color: var(--ink-2); font-size: 16px; margin: 0; max-width: 56ch; }
+.sbar { display: flex; gap: 3px; height: 14px; margin-block: 22px 14px; }
+.sbar span { height: 100%; }
+.sbar span:first-child { border-radius: 4px 0 0 4px; }
+.sbar span:last-child { border-radius: 0 4px 4px 0; }
+.tiles { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 14px; overflow: hidden; }
+@media (max-width: 520px) { .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.tiles li { background: var(--surface); padding: 14px; display: grid; gap: 2px; align-content: start; min-width: 0; }
+.t-pct { font: 800 34px/1 var(--f-display); font-stretch: 112%; letter-spacing: -0.02em; display: flex; align-items: baseline; gap: 2px; }
+.t-pct small { font-size: 16px; color: var(--muted); font-weight: 700; }
+.t-name { display: flex; align-items: center; gap: 6px; font-weight: 700; font-size: 14px; margin-top: 8px; }
+.t-amt { font: 500 12.5px/1.3 var(--f-mono); color: var(--ink-2); }
+.t-hint { font-size: 12.5px; color: var(--muted); }
+.ex-note { font-size: 12.5px; color: var(--muted); margin: 10px 0 0; }
+.values { list-style: none; padding: 0; margin: 20px 0 0; display: grid; gap: 8px; font-size: 14px; color: var(--ink-2); }
+.values li { display: flex; gap: 10px; align-items: baseline; }
+.values li::before { content: ""; width: 7px; height: 7px; border-radius: 2px; background: var(--accent); flex: none; transform: translateY(-1px); }
+.ob-card { padding: 22px; }
+@media (max-width: 480px) { .ob-card { padding: 16px; } }
+.ob-narrow { max-width: 660px; margin-inline: auto; width: 100%; }
+.ob-step { font: 500 11px/1.3 var(--f-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+.ob-card h2 { font: 700 22px/1.2 var(--f-display); font-stretch: 110%; margin: 6px 0 4px; text-wrap: balance; }
+.ob-card > .sub { font-size: 14px; max-width: 58ch; }
+.form { display: grid; gap: 14px; margin-top: 18px; }
+.opt { color: var(--muted); font-weight: 400; }
+.privacy { font-size: 12.5px; color: var(--muted); margin: 0; }
+.ob-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.ob-actions .btn { padding: 11px 18px; font-size: 15px; }
+.ob-income { display: flex; gap: 12px; align-items: end; flex-wrap: wrap; margin-top: 18px; }
+.ob-income .amt { flex: 1 1 220px; }
+.ob-income .field { flex: 0 1 200px; }
+.fmt { margin-top: 20px; }
+.fmt-opts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+@media (max-width: 520px) { .fmt-opts { grid-template-columns: minmax(0, 1fr); } }
+.fmt-opt { display: flex; gap: 10px; align-items: flex-start; border: 1px solid var(--rule-strong); border-radius: 12px; padding: 12px; cursor: pointer; background: var(--surface); min-width: 0; }
+.fmt-opt input { width: 16px; height: 16px; margin: 3px 0 0; flex: none; accent-color: var(--accent); }
+.fmt-opt b { display: block; font-size: 14.5px; font-weight: 700; }
+.fmt-opt small { display: block; margin-top: 2px; color: var(--muted); font-size: 12.5px; }
+.fmt-opt:has(input:checked) { border-color: var(--accent); background: var(--accent-soft); box-shadow: inset 0 0 0 1px var(--accent); }
+.fmt-opt:has(input:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; }
+.ob-split { margin-top: 20px; border-top: 1px solid var(--rule); }
+.ob-row { display: grid; grid-template-columns: auto minmax(0, 1fr) 84px minmax(88px, auto); gap: 12px; align-items: center; padding-block: 10px; border-bottom: 1px solid var(--rule); }
+.ob-row .nm b { display: block; font-weight: 600; font-size: 14.5px; }
+.ob-row .nm small { display: block; color: var(--muted); font-size: 12.5px; }
+.pct-in { display: flex; align-items: center; gap: 4px; color: var(--muted); }
+.pct-in input { width: 58px; text-align: right; border: 1px solid var(--rule-strong); background: var(--surface); border-radius: 8px; padding: 7px 8px; color: var(--ink); font-variant-numeric: tabular-nums; }
+.pct-in input[aria-invalid="true"] { border-color: var(--bad); background: var(--bad-soft); }
+.ob-amt { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
+@media (max-width: 480px) {
+  .ob-row { grid-template-columns: auto minmax(0, 1fr) 76px; row-gap: 2px; }
+  .ob-amt { grid-column: 2 / -1; text-align: left; font-size: 13px; color: var(--ink-2); font-weight: 500; }
+}
+.ob-total { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-block: 12px 18px; font-size: 13.5px; }
+.goalbox { border: 1px solid var(--rule); border-radius: 12px; padding: 14px; display: grid; gap: 12px; background: var(--surface-2); margin-top: 16px; }
+.goalbox h3 { margin: 0; font: 700 15px/1.2 var(--f-display); font-stretch: 105%; display: flex; gap: 8px; align-items: center; }
+.goalbox h3 .opt { font: 400 12.5px var(--f-body); }
+.grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+@media (max-width: 480px) { .grid2 { grid-template-columns: minmax(0, 1fr); } }
+.suggest { font-size: 12.5px; color: var(--muted); margin: 0; }
+
+/* Overview */
+.notice { display: flex; align-items: center; gap: 10px 12px; flex-wrap: wrap; background: var(--surface); border: 1px solid var(--rule); border-radius: 12px; padding: 12px 14px; margin-bottom: 16px; font-size: 14px; }
+.notice p { margin: 0; flex: 1 1 280px; color: var(--ink-2); }
+.ov { display: flex; flex-direction: column; gap: 16px; }
+.ov > .col { display: contents; }
+.hero { order: 1; } .fixed { order: 2; } .buckets { order: 3; } .daily { order: 4; } .goal { order: 5; } .zakat { order: 6; }
+@media (min-width: 920px) {
+  .ov { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); align-items: start; gap: 18px; }
+  .ov > .col { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+}
+
+.hero { position: relative; overflow: hidden; background: var(--surface); border: 1px solid var(--rule); border-radius: 16px; padding: 20px; }
+.hero::before { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: repeating-radial-gradient(circle at 104% -12%, transparent 0 12px, var(--guilloche) 12px 13px);
+  -webkit-mask-image: radial-gradient(circle at 100% 0, #000 0 30%, transparent 68%);
+  mask-image: radial-gradient(circle at 100% 0, #000 0 30%, transparent 68%); }
+.hero > * { position: relative; }
+.hero-num { font: 800 clamp(40px, 10vw, 62px)/1 var(--f-display); font-stretch: 112%; letter-spacing: -0.025em; margin-top: 8px; overflow-wrap: anywhere; }
+.hero-num.over { color: var(--bad); }
+.hero-sub { margin: 8px 0 0; color: var(--ink-2); max-width: 60ch; }
+.hero-note { margin: 4px 0 0; color: var(--muted); font-size: 13px; }
+.split { display: flex; gap: 2px; height: 12px; margin-block: 20px 16px; }
+.split > span { height: 100%; min-width: 0; }
+.split > span:first-child { border-radius: 4px 0 0 4px; }
+.split > span:last-child { border-radius: 0 4px 4px 0; }
+.split > span:only-child { border-radius: 4px; }
+.k-spent { background: var(--ink-2); }
+.k-saved { background: var(--accent); }
+.k-due { background: repeating-linear-gradient(135deg, var(--rule-strong) 0 3px, transparent 3px 6px); box-shadow: inset 0 0 0 1px var(--rule-strong); }
+.k-free { background: var(--accent-soft); box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--accent) 55%, transparent); }
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px 16px; margin: 0; }
+@media (max-width: 600px) { .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.stats > div { min-width: 0; }
+.stats dt { display: flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--muted); }
+.stats dt .key { width: 10px; height: 10px; border-radius: 3px; flex: none; }
+.stats dd { margin: 2px 0 0; font: 700 18px/1.2 var(--f-display); font-stretch: 105%; }
+.stats dd small { display: block; font: 400 12px/1.3 var(--f-body); color: var(--muted); margin-top: 2px; }
+
+.bucket { padding-block: 14px; border-top: 1px solid var(--rule); }
+.bucket:first-of-type { border-top: 0; padding-top: 0; }
+.b-top { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.b-top h3 { margin: 0; font: 700 15px/1.2 var(--f-display); font-stretch: 105%; }
+.b-pct { font: 500 12px/1 var(--f-mono); color: var(--muted); }
+.b-amt { font-variant-numeric: tabular-nums; font-weight: 600; }
+.b-amt .of { color: var(--muted); font-weight: 400; }
+.bar { height: 8px; border-radius: 4px; background: var(--surface-2); box-shadow: inset 0 0 0 1px var(--rule); margin-top: 10px; overflow: hidden; }
+.bar > span { display: block; height: 100%; border-radius: 0 4px 4px 0; background: var(--c); }
+.b-note { margin: 6px 0 0; font-size: 12.5px; color: var(--muted); }
+.items { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 8px; }
+.items li { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(92px, auto); align-items: baseline; column-gap: 12px; row-gap: 4px; font-size: 13.5px; }
+.i-name { min-width: 0; overflow-wrap: anywhere; }
+.i-vals { font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+.i-vals .of { color: var(--muted); }
+.i-diff { font-variant-numeric: tabular-nums; text-align: right; font-size: 12.5px; white-space: nowrap; }
+.ibar { grid-column: 1 / -1; height: 3px; border-radius: 2px; background: var(--surface-2); overflow: hidden; }
+.ibar > span { display: block; height: 100%; background: var(--c); border-radius: 0 2px 2px 0; }
+@media (max-width: 440px) {
+  .items li { grid-template-columns: minmax(0, 1fr) auto; }
+  .i-diff { grid-column: 2; }
+}
+
+.fx { list-style: none; margin: 0; padding: 0; }
+.fx li { display: flex; align-items: center; gap: 10px; padding-block: 10px; border-top: 1px solid var(--rule); }
+.fx li:first-child { border-top: 0; padding-top: 0; }
+.chk { width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid var(--rule-strong); display: grid; place-items: center; flex: none; font-size: 12px; font-weight: 700; color: transparent; }
+.fx li.done .chk { background: var(--good); border-color: var(--good); color: var(--surface); }
+.fx li.partial .chk { border-color: var(--warn); background: conic-gradient(var(--warn) var(--p, 50%), transparent 0); }
+.fx-main { flex: 1; min-width: 0; }
+.fx-name { font-weight: 600; font-size: 14px; overflow-wrap: anywhere; }
+.fx-meta { font-size: 12.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.fx-ok { font-size: 12.5px; color: var(--good); font-weight: 600; white-space: nowrap; }
+.progress-line { font-size: 12.5px; color: var(--muted); margin: -6px 0 12px; }
+
+.glist { display: grid; gap: 14px; }
+.gitem + .gitem { border-top: 1px solid var(--rule); padding-top: 14px; }
+.g-top { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.g-top h3 { margin: 0; font: 700 15px/1.2 var(--f-display); font-stretch: 105%; overflow-wrap: anywhere; }
+.g-num { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; margin-top: 6px; font-variant-numeric: tabular-nums; }
+.g-num strong { font: 800 24px/1.1 var(--f-display); font-stretch: 110%; }
+.g-num span { color: var(--muted); }
+.meter { height: 10px; border-radius: 5px; background: var(--accent-soft); margin-block: 10px; overflow: hidden; }
+.meter > span { display: block; height: 100%; background: var(--accent); border-radius: 0 5px 5px 0; }
+.g-line { margin: 0; color: var(--ink-2); font-size: 13px; }
+.zk-num strong { font: 800 30px/1.1 var(--f-display); font-stretch: 110%; }
+.zakat p { margin: 0; color: var(--ink-2); font-size: 13.5px; }
+.zakat p + p { margin-top: 8px; }
+.zakat .fine { color: var(--muted); font-size: 12.5px; }
+
+/* Charts */
+.chart { position: relative; width: 100%; }
+.chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+.chart .grid { stroke: var(--rule); stroke-width: 1; }
+.chart .base { stroke: var(--rule-strong); stroke-width: 1; }
+.chart .ref { stroke: var(--ink-2); stroke-width: 1; }
+.chart .tick { fill: var(--muted); font: 10.5px var(--f-mono); }
+.chart .lbl { fill: var(--ink-2); font: 600 11px var(--f-body); }
+.chart .hit { fill: transparent; }
+.chart .hit:hover { fill: var(--surface-2); }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-bottom: 12px; font-size: 12.5px; color: var(--ink-2); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+.legend .ref-key { width: 14px; height: 0; border-top: 1px solid var(--ink-2); border-radius: 0; }
+
+.hbars { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.hbars li { display: grid; grid-template-columns: minmax(90px, 30%) minmax(0, 1fr) auto; align-items: center; gap: 10px; font-size: 13.5px; }
+.hb-name { overflow-wrap: anywhere; }
+.hb-track { height: 10px; }
+.hb-track > span { display: block; height: 100%; border-radius: 0 4px 4px 0; min-width: 2px; }
+.hb-val { font-variant-numeric: tabular-nums; font-weight: 600; text-align: right; }
+
+.tablewrap { overflow-x: auto; margin-inline: -4px; padding-inline: 4px; }
+table.data { border-collapse: collapse; width: 100%; font-size: 13.5px; }
+table.data th { text-align: left; font: 500 11px/1.3 var(--f-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); padding: 8px 10px; border-bottom: 1px solid var(--rule-strong); white-space: nowrap; }
+table.data td { padding: 9px 10px; border-bottom: 1px solid var(--rule); white-space: nowrap; }
+table.data .num { text-align: right; font-variant-numeric: tabular-nums; }
+table.data tbody tr:last-child td { border-bottom: 0; }
+
+.trends { display: grid; gap: 18px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 920px) { .trends { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); } .trends .wide { grid-column: 1 / -1; } }
+
+/* Passbook */
+.pb-tools { display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px; }
+.fchips { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
+.fchips::-webkit-scrollbar { display: none; }
+.fchip { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--rule-strong); background: var(--surface); border-radius: 999px; padding: 6px 11px; font-size: 13px; font-weight: 500; white-space: nowrap; }
+.fchip i { width: 8px; height: 8px; border-radius: 2px; display: inline-block; }
+.fchip[aria-pressed="true"] { background: var(--ink); color: var(--surface); border-color: var(--ink); }
+.pb-right { display: flex; gap: 8px; align-items: center; }
+.search { flex: 1; min-width: 0; border: 1px solid var(--rule-strong); background: var(--surface); border-radius: 10px; padding: 9px 12px; font-size: 14px; }
+.pb-sum { display: flex; flex-wrap: wrap; gap: 4px 18px; font-size: 13px; color: var(--muted); margin-bottom: 10px; font-variant-numeric: tabular-nums; }
+.pb-sum strong { color: var(--ink); font-weight: 600; }
+table.pb { border-collapse: collapse; width: 100%; font-size: 14px; }
+table.pb th { text-align: left; font: 500 10.5px/1.3 var(--f-mono); letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); padding: 8px 10px; border-bottom: 1.5px solid var(--ink-2); white-space: nowrap; }
+table.pb td { padding: 10px 10px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+table.pb tbody tr { cursor: pointer; }
+table.pb tbody tr:hover td { background: var(--surface-2); }
+table.pb .num { text-align: right; font-family: var(--f-mono); font-size: 13px; white-space: nowrap; }
+.pb-date { font-family: var(--f-mono); font-size: 12.5px; white-space: nowrap; color: var(--ink-2); }
+.pb-date small { display: block; color: var(--muted); font-size: 11px; }
+.pb-part { display: flex; gap: 8px; align-items: flex-start; min-width: 0; }
+.pb-part .sw { margin-top: 5px; }
+.pb-part b { font-weight: 600; }
+.pb-part small { display: block; color: var(--muted); font-size: 12.5px; overflow-wrap: anywhere; }
+.col-amt { display: none; }
+@media (max-width: 640px) {
+  .col-wd, .col-dp { display: none; }
+  .col-amt { display: table-cell; }
+  table.pb td, table.pb th { padding-inline: 6px; }
+}
+
+/* Plan editor */
+.plan { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; }
+.plan-top { display: grid; gap: 16px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 920px) { .plan-top { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.fields { display: grid; gap: 12px; }
+.field { display: grid; gap: 4px; font-size: 13px; color: var(--muted); min-width: 0; }
+.field input, .field select, .ed input, .ed select, .mini input, .mini select { border: 1px solid var(--rule-strong); background: var(--surface); border-radius: 8px; padding: 8px 10px; font-size: 14.5px; color: var(--ink); min-width: 0; width: 100%; font-variant-numeric: tabular-nums; }
+.field select, .ed select, .mini select { min-height: 40px; }
+.field input[type="date"], .mini input[type="month"] { -webkit-appearance: none; appearance: none; display: block; min-height: 40px; text-align: left; }
+.field input[type="date"]::-webkit-date-and-time-value, .mini input[type="month"]::-webkit-date-and-time-value { text-align: left; }
+/* iOS zooms the page when a field under 16px gets focus */
+@media (pointer: coarse), (max-width: 560px) {
+  .field input, .field select, .ed input, .ed select, .mini input, .mini select, .search, .pct-in input, textarea { font-size: 16px; }
+}
+.field input[aria-invalid="true"], .ed input[aria-invalid="true"], .mini input[aria-invalid="true"] { border-color: var(--bad); background: var(--bad-soft); }
+.field.calc strong { color: var(--ink); font: 700 18px/1.3 var(--f-display); font-stretch: 105%; }
+.field-help { font-size: 12.5px; color: var(--muted); margin: 0; }
+.checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; font-size: 13.5px; }
+.checks li { display: flex; gap: 8px; align-items: flex-start; }
+.checks li .pill { flex: none; }
+.flag-help { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: 12.5px; color: var(--muted); }
+.flag-help b { color: var(--ink-2); }
+.ed-grid { display: grid; gap: 16px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 920px) { .ed-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.ed-head { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+.ed-head .ed-bname { flex: 1 1 140px; font: 700 15px/1.2 var(--f-display); font-stretch: 105%; }
+.ed-pct { display: inline-flex; align-items: center; gap: 4px; color: var(--muted); }
+.ed-pct input { width: 64px; text-align: right; }
+.ed-alloc { font-weight: 600; font-variant-numeric: tabular-nums; min-width: 80px; text-align: right; }
+.ed-kind { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 12.5px; color: var(--muted); }
+.kind { display: inline-grid; grid-template-columns: 1fr 1fr; background: var(--surface-2); border: 1px solid var(--rule); border-radius: 8px; padding: 2px; gap: 2px; }
+.kind button { border: 0; background: transparent; border-radius: 6px; padding: 4px 10px; font-size: 12.5px; font-weight: 600; color: var(--muted); }
+.kind button[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: inset 0 0 0 1px var(--rule-strong); }
+.ed-row { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) auto auto; gap: 8px; align-items: start; padding-block: 6px; border-top: 1px solid var(--rule); }
+.ed-row.ed-th { border-top: 0; font: 500 10.5px/1.3 var(--f-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); padding-bottom: 2px; }
+.ed-eq { display: block; font-size: 11.5px; color: var(--muted); margin-top: 3px; font-variant-numeric: tabular-nums; }
+.flags { display: flex; gap: 4px; flex-wrap: wrap; padding-top: 3px; }
+.flags button { border: 1px solid var(--rule-strong); background: transparent; border-radius: 6px; padding: 4px 7px; font-size: 11.5px; font-weight: 600; color: var(--muted); }
+.flags button[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--surface); }
+.ed-foot { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 10px; font-size: 12.5px; }
+@media (max-width: 560px) {
+  .ed-row { grid-template-columns: minmax(0, 1fr) auto; }
+  .ed-row > .ed-amt { grid-column: 1; }
+  .ed-row > .flags { grid-column: 1 / -1; grid-row: 3; }
+  .ed-row > .icon-btn { grid-column: 2; grid-row: 1; }
+  .ed-row.ed-th { display: none; }
+}
+.add-row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.mini { display: grid; gap: 3px; font-size: 11.5px; color: var(--muted); min-width: 0; }
+.g-ed-row { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.1fr) auto; gap: 8px; align-items: end; padding-block: 10px; border-top: 1px solid var(--rule); }
+.g-ed-row:first-child { border-top: 0; padding-top: 0; }
+@media (max-width: 760px) {
+  .g-ed-row { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto; }
+  .g-ed-row > .g-name { grid-column: 1 / 3; }
+  .g-ed-row > .icon-btn { grid-column: 3; grid-row: 1; align-self: end; }
+}
+.savebar { position: sticky; bottom: calc(12px + env(safe-area-inset-bottom, 0px)); display: flex; align-items: center; gap: 10px; background: var(--ink); color: var(--surface); border-radius: 12px; padding: 10px 12px 10px 16px; box-shadow: var(--shadow); z-index: 5; }
+.savebar span { flex: 1; font-weight: 600; font-size: 14px; }
+.savebar .btn.ghost { color: var(--surface); border-color: color-mix(in oklab, var(--surface) 35%, transparent); }
+.savebar .btn.ghost:hover { background: color-mix(in oklab, var(--surface) 12%, transparent); }
+.note-banknotes { font-size: 12px; color: var(--muted); margin: 0; }
+
+/* Sample data, footer */
+.demo-cta { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--rule); display: grid; gap: 10px; justify-items: start; }
+.demo-cta p { margin: 0; font-size: 13.5px; color: var(--ink-2); }
+.demo-bar { display: flex; align-items: center; gap: 10px 14px; flex-wrap: wrap; background: var(--accent-soft); color: var(--ink); border-radius: 12px; padding: 10px 14px; margin-bottom: 16px; font-size: 14px; }
+.demo-bar p { margin: 0; flex: 1 1 280px; }
+.foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; margin-top: 32px; padding-top: 14px; border-top: 1px solid var(--rule); font-size: 12.5px; color: var(--muted); }
+.foot a { color: var(--ink-2); font-weight: 600; }
+
+/* Settings */
+.prof { display: grid; gap: 16px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 920px) { .prof { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; } .prof .wide { grid-column: 1 / -1; } }
+.btnrow { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.sec + .sec { border-top: 1px solid var(--rule); margin-top: 16px; padding-top: 16px; }
+.sec h3 { margin: 0 0 4px; font: 700 14.5px/1.2 var(--f-display); font-stretch: 105%; }
+.sec > p { margin: 0 0 10px; font-size: 13.5px; color: var(--ink-2); max-width: 64ch; }
+textarea.code { width: 100%; min-height: 84px; border: 1px solid var(--rule-strong); border-radius: 8px; padding: 8px 10px; font: 12.5px/1.4 var(--f-mono); background: var(--surface); color: var(--ink); resize: vertical; }
+.confirm { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; background: var(--warn-soft); color: var(--warn); border-radius: 10px; padding: 10px 12px; font-size: 13.5px; font-weight: 500; margin-top: 10px; }
+.confirm span { flex: 1 1 220px; }
+.file-in { font-size: 13px; color: var(--ink-2); max-width: 100%; }
+
+/* Add button, dialog, toast, tooltip */
+.fab { position: fixed; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 20; display: inline-flex; align-items: center; gap: 8px; border: 0; border-radius: 999px; padding: 14px 20px 14px 16px; background: var(--accent); color: var(--accent-ink); font: 700 15px/1 var(--f-body); box-shadow: var(--shadow); }
+.fab:hover { background: var(--accent-hover); }
+.fab .plus { font-size: 22px; line-height: 0.6; font-weight: 500; }
+@media (min-width: 1240px) { .fab { right: calc((100% - 1160px) / 2 + 24px); } }
+
+dialog { border: 0; padding: 0; background: var(--surface); color: var(--ink); border-radius: 18px; width: min(540px, calc(100% - 32px)); max-width: none; max-height: calc(100% - 32px); overflow: auto; box-shadow: var(--shadow); }
+dialog::backdrop { background: var(--backdrop); }
+@media (max-width: 560px) {
+  dialog { width: 100%; margin: auto 0 0; border-radius: 18px 18px 0 0; max-height: 92%; }
+}
+.dlg-body { padding: 18px 18px calc(18px + env(safe-area-inset-bottom, 0px)); display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; }
+.dlg-body > * { min-width: 0; }
+.dlg-head { display: flex; align-items: center; justify-content: space-between; }
+.dlg-head h2 { margin: 0; font: 700 19px/1.2 var(--f-display); font-stretch: 110%; }
+.seg { display: grid; grid-template-columns: 1fr 1fr; background: var(--surface-2); border: 1px solid var(--rule); border-radius: 10px; padding: 3px; gap: 3px; }
+.seg button { border: 0; background: transparent; border-radius: 8px; padding: 8px; font-weight: 600; color: var(--muted); }
+.seg button[aria-checked="true"] { background: var(--surface); color: var(--ink); box-shadow: 0 1px 2px rgba(0,0,0,.08), inset 0 0 0 1px var(--rule-strong); }
+.amt { display: flex; align-items: baseline; gap: 6px; border-bottom: 2px solid var(--ink); padding-bottom: 4px; min-width: 0; }
+.amt .cur { font: 700 28px/1 var(--f-display); color: var(--muted); white-space: nowrap; }
+.amt input { flex: 1 1 0; width: 0; min-width: 0; border: 0; background: transparent; outline: none; font: 800 36px/1.1 var(--f-display); font-stretch: 108%; letter-spacing: -0.01em; padding: 0; font-variant-numeric: tabular-nums; }
+.amt:focus-within { border-bottom-color: var(--accent); }
+.hint { font-size: 12.5px; color: var(--muted); margin-top: -8px; min-height: 1.3em; font-variant-numeric: tabular-nums; }
+fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+legend, .lbl-text { font: 500 11px/1.3 var(--f-mono); letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); padding: 0; margin-bottom: 8px; }
+.cats { display: grid; gap: 10px; max-height: 280px; overflow-y: auto; padding: 2px; }
+.catgroup { display: grid; gap: 6px; }
+.catlabel { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: var(--ink-2); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { position: relative; display: inline-flex; }
+.chip input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; }
+.chip span { display: inline-flex; align-items: center; padding: 7px 11px; border: 1px solid var(--rule-strong); border-radius: 999px; font-size: 13.5px; font-weight: 500; background: var(--surface); line-height: 1.1; }
+.chip input:checked + span { background: var(--ink); color: var(--surface); border-color: var(--ink); }
+.chip input:focus-visible + span { outline: 2px solid var(--accent); outline-offset: 2px; }
+.row2 { display: flex; gap: 10px; align-items: end; flex-wrap: wrap; }
+.row2 .field { flex: 1 1 160px; }
+.quick { display: flex; gap: 6px; }
+.err { margin: 0; color: var(--bad); font-weight: 500; font-size: 13.5px; }
+.dlg-actions { display: flex; align-items: center; gap: 10px; }
+
+.toast { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(80px + env(safe-area-inset-bottom, 0px)); z-index: 30; display: flex; align-items: center; gap: 14px; background: var(--ink); color: var(--surface); padding: 10px 12px 10px 16px; border-radius: 12px; box-shadow: var(--shadow); font-size: 14px; max-width: calc(100% - 32px); }
+.toast button { border: 0; background: transparent; color: var(--accent-soft); font-weight: 700; padding: 4px 6px; border-radius: 6px; }
+:root[data-theme="dark"] .toast button { color: var(--accent-ink); }
+.tip { position: fixed; z-index: 40; pointer-events: none; background: var(--ink); color: var(--surface); font-size: 12.5px; padding: 6px 9px; border-radius: 8px; box-shadow: var(--shadow); max-width: 240px; font-variant-numeric: tabular-nums; }
+
+/* Copy fallback */
+.msg-preview { background: var(--surface-2); border: 1px solid var(--rule); border-radius: 12px; padding: 12px 14px; font-size: 14px; white-space: pre-line; color: var(--ink); overflow-wrap: anywhere; margin: 12px 0 0; }
+.fallback, .sec > .fallback { font-size: 12.5px; color: var(--muted); margin: 10px 0 0; }
+.sel { user-select: all; -webkit-user-select: all; font-family: var(--f-mono); color: var(--ink-2); overflow-wrap: anywhere; }
+
+/* Help */
+.help { display: grid; gap: 16px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 920px) { .help { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; } .help .wide { grid-column: 1 / -1; } }
+.help-intro { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.help-intro p { margin: 0; flex: 1 1 300px; color: var(--ink-2); }
+.steps { margin: 0; padding: 0; list-style: none; counter-reset: st; display: grid; gap: 10px; }
+.steps li { counter-increment: st; display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 10px; font-size: 14px; color: var(--ink-2); align-items: start; }
+.steps li::before { content: counter(st); width: 24px; height: 24px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); font: 600 12px/24px var(--f-mono); text-align: center; }
+.steps b { color: var(--ink); }
+.grp { font: 500 11px/1.3 var(--f-mono); letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); margin: 18px 0 6px; }
+.card-head + .grp { margin-top: 0; }
+.btnmap { margin: 0; }
+.btnmap > div { display: grid; grid-template-columns: minmax(150px, 32%) minmax(0, 1fr); gap: 12px; padding-block: 9px; border-top: 1px solid var(--rule); font-size: 13.5px; align-items: baseline; }
+.btnmap > div:first-child { border-top: 0; }
+.btnmap dt { margin: 0; display: flex; flex-wrap: wrap; gap: 4px; align-items: center; font-weight: 600; }
+.btnmap dd { margin: 0; color: var(--ink-2); }
+@media (max-width: 520px) { .btnmap > div { grid-template-columns: minmax(0, 1fr); gap: 4px; } }
+.kbd { display: inline-flex; align-items: center; font: 600 12.5px/1.2 var(--f-body); border: 1px solid var(--rule-strong); border-radius: 7px; padding: 3px 8px; background: var(--surface); color: var(--ink); white-space: nowrap; }
+.kbd.blue { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.kbd.red { color: var(--bad); border-color: color-mix(in oklab, var(--bad) 45%, transparent); }
+.faq details { border-top: 1px solid var(--rule); padding-block: 11px; }
+.faq details:first-of-type { border-top: 0; padding-top: 0; }
+.faq summary { cursor: pointer; font-weight: 600; font-size: 14px; }
+.faq details p { margin: 6px 0 0; font-size: 13.5px; color: var(--ink-2); max-width: 72ch; }
+
+/* Tour */
+.tour { position: fixed; inset: 0; z-index: 50; }
+.tour.center { background: var(--backdrop); }
+.tour-hole { position: fixed; border-radius: 12px; box-shadow: 0 0 0 9999px var(--backdrop), 0 0 0 2px var(--accent); pointer-events: none; }
+.tour-card { position: fixed; width: min(360px, calc(100vw - 32px)); background: var(--surface); color: var(--ink); border: 1px solid var(--rule); border-radius: 14px; box-shadow: var(--shadow); padding: 16px; display: grid; gap: 8px; }
+.tour-count { font: 500 11px/1.3 var(--f-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+.tour-card h3 { margin: 0; font: 700 18px/1.25 var(--f-display); font-stretch: 108%; text-wrap: balance; }
+.tour-card p { margin: 0; font-size: 14px; color: var(--ink-2); }
+.tour-foot { display: flex; align-items: center; gap: 8px; margin-top: 6px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .bar > span, .ibar > span, .meter > span, .hb-track > span { transition: width 0.35s ease; }
+  .tour-hole, .tour-card { transition: top 0.25s ease, left 0.25s ease, width 0.25s ease, height 0.25s ease; }
+}
+</style>
+</head>
+<body>
+
+<div id="ob" class="ob-wrap"></div>
+
+<div id="app" class="app" hidden>
+  <header class="top">
+    <div class="brand">
+      <span class="mark" aria-hidden="true">₹</span>
+      <div>
+        <div class="wordmark">Hisaab</div>
+        <div class="tagline" id="tagline">Monthly budget book</div>
+      </div>
+    </div>
+    <div class="month-switch" role="group" aria-label="Month">
+      <button type="button" id="mPrev" class="arrow" aria-label="Previous month">‹</button>
+      <button type="button" id="mLabel" class="mlabel" title="Jump to this month">—</button>
+      <button type="button" id="mNext" class="arrow" aria-label="Next month">›</button>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="Sections">
+    <button type="button" class="tab" role="tab" id="t-overview" data-tab="overview" aria-controls="p-overview">Overview</button>
+    <button type="button" class="tab" role="tab" id="t-passbook" data-tab="passbook" aria-controls="p-passbook">Passbook</button>
+    <button type="button" class="tab" role="tab" id="t-trends" data-tab="trends" aria-controls="p-trends">Trends</button>
+    <button type="button" class="tab" role="tab" id="t-plan" data-tab="plan" aria-controls="p-plan">Plan</button>
+    <button type="button" class="tab" role="tab" id="t-profile" data-tab="profile" aria-controls="p-profile">Settings</button>
+    <button type="button" class="tab" role="tab" id="t-help" data-tab="help" aria-controls="p-help">Help</button>
+  </nav>
+
+  <div id="banner" class="banner" role="status" hidden></div>
+  <div id="demoBar" class="demo-bar" hidden><p><b>You're exploring sample data.</b> Look around, log a test entry, change the plan. When you're ready, start your own budget and the sample is cleared.</p><button type="button" class="btn small primary" data-demo-exit>Start my own budget</button></div>
+
+  <main>
+    <section id="p-overview" role="tabpanel" aria-labelledby="t-overview"></section>
+    <section id="p-passbook" role="tabpanel" aria-labelledby="t-passbook" hidden>
+      <div class="card">
+        <div class="pb-tools">
+          <div id="pbChips" class="fchips" role="group" aria-label="Filter entries"></div>
+          <div class="pb-right">
+            <input id="pbSearch" class="search" type="search" placeholder="Search notes, categories, amounts" aria-label="Search entries" autocomplete="off">
+            <button type="button" id="pbExport" class="btn ghost small" hidden>Export CSV</button>
+          </div>
+        </div>
+        <div id="pbSum" class="pb-sum"></div>
+        <div id="pbList"></div>
+      </div>
+    </section>
+    <section id="p-trends" role="tabpanel" aria-labelledby="t-trends" hidden></section>
+    <section id="p-plan" role="tabpanel" aria-labelledby="t-plan" hidden></section>
+    <section id="p-profile" role="tabpanel" aria-labelledby="t-profile" hidden></section>
+    <section id="p-help" role="tabpanel" aria-labelledby="t-help" hidden></section>
+  </main>
+  <div id="appFoot"></div>
+</div>
+
+<button type="button" id="fab" class="fab" aria-haspopup="dialog" hidden><span class="plus" aria-hidden="true">+</span>Add entry</button>
+
+<dialog id="dlg" aria-labelledby="dlgTitle">
+  <form id="entryForm" class="dlg-body" novalidate>
+    <div class="dlg-head">
+      <h2 id="dlgTitle">Add entry</h2>
+      <button type="button" class="icon-btn" id="dlgClose" aria-label="Close">×</button>
+    </div>
+    <div class="seg" role="radiogroup" aria-label="Entry type">
+      <button type="button" role="radio" id="fTypeX" data-type="expense" aria-checked="true">Expense</button>
+      <button type="button" role="radio" id="fTypeI" data-type="income" aria-checked="false">Income</button>
+    </div>
+    <label class="amt"><span class="cur" id="fCurSym" aria-hidden="true">₹</span><input id="fAmount" inputmode="decimal" autocomplete="off" placeholder="0" aria-label="Amount"></label>
+    <div id="fHint" class="hint">Sums work too, like 349+530</div>
+    <fieldset>
+      <legend>Category</legend>
+      <div id="fCats" class="cats"></div>
+    </fieldset>
+    <fieldset id="fGoalSet" hidden>
+      <legend>Counts toward</legend>
+      <div id="fGoals" class="chips"></div>
+    </fieldset>
+    <div class="row2">
+      <label class="field"><span class="lbl-text">Date</span><input type="date" id="fDate" required></label>
+      <div class="quick">
+        <button type="button" class="btn small" data-day="0">Today</button>
+        <button type="button" class="btn small" data-day="-1">Yesterday</button>
+      </div>
+    </div>
+    <label class="field"><span class="lbl-text">Note</span><input id="fNote" maxlength="140" placeholder="Optional, e.g. DMart groceries" autocomplete="off"></label>
+    <p id="fErr" class="err" role="alert" hidden></p>
+    <div class="dlg-actions">
+      <button type="button" id="fDelete" class="btn danger" hidden>Delete</button>
+      <span class="grow"></span>
+      <button type="submit" id="fSave" class="btn primary">Add expense</button>
+    </div>
+  </form>
+</dialog>
+
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+<div id="tip" class="tip" role="tooltip" hidden></div>
+<div id="tour" class="tour" hidden><div id="tourHole" class="tour-hole"></div><div id="tourCard" class="tour-card" role="dialog" aria-modal="true" aria-labelledby="tourTitle"></div></div>
+
+<script>
+(() => {
+  "use strict";
+
+  // ---------- your links ----------
+  // Paste your links here once Hisaab is published. Empty ones stay hidden.
+  const LINKS = {
+    github: "https://github.com/buberearbaz-web/hisaab",
+    pinterest: "",  // e.g. "https://www.pinterest.com/your-name/"
+  };
+
+  // ---------- helpers ----------
+  const $ = (s) => document.querySelector(s);
+  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const pad = (n) => String(n).padStart(2, "0");
+  const isoOf = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+  const todayISO = () => isoOf(new Date());
+  const thisYm = () => todayISO().slice(0, 7);
+  const ymParts = (ym) => ym.split("-").map(Number);
+  const daysIn = (ym) => { const [y, m] = ymParts(ym); return new Date(y, m, 0).getDate(); };
+  const shiftYm = (ym, k) => { const [y, m] = ymParts(ym); const d = new Date(y, m - 1 + k, 1); return `${d.getFullYear()}-${pad(d.getMonth() + 1)}`; };
+  const monthsBetween = (a, b) => { const [ya, ma] = ymParts(a); const [yb, mb] = ymParts(b); return (yb - ya) * 12 + (mb - ma); };
+  const ymDate = (ym) => { const [y, m] = ymParts(ym); return new Date(y, m - 1, 1); };
+  const monthLong = (ym) => ymDate(ym).toLocaleDateString("en-IN", { month: "long", year: "numeric" });
+  const monthOnly = (ym) => ymDate(ym).toLocaleDateString("en-IN", { month: "long" });
+  const monthShort = (ym) => ymDate(ym).toLocaleDateString("en-IN", { month: "short" });
+  const parseISO = (iso) => { const [y, m, d] = iso.split("-").map(Number); return new Date(y, m - 1, d); };
+  const newId = (p = "e") => p + Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+  const clone = (o) => JSON.parse(JSON.stringify(o));
+  const firstName = (n) => String(n || "").trim().split(/\s+/)[0] || "";
+
+  const CURRENCIES = [
+    { code: "INR", sym: "₹", loc: "en-IN", lakh: true, name: "Indian rupee" },
+    { code: "PKR", sym: "Rs ", loc: "en-IN", lakh: true, name: "Pakistani rupee" },
+    { code: "BDT", sym: "৳", loc: "en-IN", lakh: true, name: "Bangladeshi taka" },
+    { code: "AED", sym: "AED ", loc: "en-US", name: "UAE dirham" },
+    { code: "SAR", sym: "SAR ", loc: "en-US", name: "Saudi riyal" },
+    { code: "QAR", sym: "QAR ", loc: "en-US", name: "Qatari riyal" },
+    { code: "KWD", sym: "KWD ", loc: "en-US", name: "Kuwaiti dinar" },
+    { code: "OMR", sym: "OMR ", loc: "en-US", name: "Omani rial" },
+    { code: "BHD", sym: "BHD ", loc: "en-US", name: "Bahraini dinar" },
+    { code: "USD", sym: "$", loc: "en-US", name: "US dollar" },
+    { code: "GBP", sym: "£", loc: "en-GB", name: "British pound" },
+    { code: "EUR", sym: "€", loc: "en-IE", name: "Euro" },
+  ];
+  let CUR, nf, nf0;
+  function setCurrency(code) {
+    CUR = CURRENCIES.find((c) => c.code === code) || CURRENCIES[0];
+    nf = new Intl.NumberFormat(CUR.loc, { maximumFractionDigits: 2 });
+    nf0 = new Intl.NumberFormat(CUR.loc, { maximumFractionDigits: 0 });
+    const s = $("#fCurSym"); if (s) s.textContent = CUR.sym.trim();
+  }
+  setCurrency("INR");
+  // A first guess from the time zone; people can change it during setup and in Plan.
+  function guessCurrency() {
+    let tz = "";
+    try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ""; } catch (e) {}
+    const byZone = { "Asia/Kolkata": "INR", "Asia/Calcutta": "INR", "Asia/Karachi": "PKR", "Asia/Dhaka": "BDT", "Asia/Dubai": "AED", "Asia/Riyadh": "SAR", "Asia/Qatar": "QAR", "Asia/Kuwait": "KWD", "Asia/Muscat": "OMR", "Asia/Bahrain": "BHD", "Europe/London": "GBP" };
+    if (byZone[tz]) return byZone[tz];
+    if (tz.startsWith("America/")) return "USD";
+    if (tz.startsWith("Europe/")) return "EUR";
+    return "INR";
+  }
+  const EXAMPLE_PAY = { INR: 50000, PKR: 150000, BDT: 60000, AED: 15000, SAR: 15000, QAR: 15000, KWD: 1200, OMR: 1500, BHD: 1500, USD: 5000, GBP: 3500, EUR: 4000 };
+  const UNIT = { INR: "rupee", PKR: "rupee", BDT: "taka", AED: "dirham", SAR: "riyal", QAR: "riyal", KWD: "dinar", OMR: "rial", BHD: "dinar", USD: "dollar", GBP: "pound", EUR: "euro" };
+  const rs = (n) => (n < 0 ? "−" : "") + CUR.sym + nf.format(Math.abs(Math.round(n * 100) / 100));
+  const rs0 = (n) => (n < 0 ? "−" : "") + CUR.sym + nf0.format(Math.abs(Math.round(n)));
+  const trim1 = (x) => String(+x.toFixed(1));
+  const compact = (n) => {
+    const a = Math.abs(n), sg = n < 0 ? "−" : "";
+    if (CUR.lakh) {
+      if (a >= 1e7) return sg + CUR.sym + trim1(a / 1e7) + "Cr";
+      if (a >= 1e5) return sg + CUR.sym + trim1(a / 1e5) + "L";
+    } else if (a >= 1e6) return sg + CUR.sym + trim1(a / 1e6) + "M";
+    if (a >= 1e3) return sg + CUR.sym + trim1(a / 1e3) + "K";
+    return sg + CUR.sym + Math.round(a);
+  };
+
+  // Arithmetic like 349+349+530 — parsed, never eval'd.
+  function evalExpr(str) {
+    const s = String(str ?? "").replace(/[,\s₹$£€৳]/g, "").replace(/^(inr|rs|pkr|bdt|aed|sar|qar|kwd|omr|bhd|usd|gbp|eur)/i, "");
+    if (!s || !/^[0-9+\-*/().]+$/.test(s)) return NaN;
+    let i = 0;
+    const num = () => { const st = i; while (i < s.length && /[0-9.]/.test(s[i])) i++; if (st === i) throw 0; const v = parseFloat(s.slice(st, i)); if (Number.isNaN(v)) throw 0; return v; };
+    const factor = () => {
+      if (s[i] === "(") { i++; const v = expr(); if (s[i] !== ")") throw 0; i++; return v; }
+      if (s[i] === "-") { i++; return -factor(); }
+      if (s[i] === "+") { i++; return factor(); }
+      return num();
+    };
+    const term = () => { let v = factor(); while (s[i] === "*" || s[i] === "/") { const op = s[i++]; const r = factor(); v = op === "*" ? v * r : v / r; } return v; };
+    const expr = () => { let v = term(); while (s[i] === "+" || s[i] === "-") { const op = s[i++]; const r = term(); v = op === "+" ? v + r : v - r; } return v; };
+    try { const v = expr(); if (i !== s.length || !Number.isFinite(v)) return NaN; return Math.round(v * 100) / 100; } catch (e) { return NaN; }
+  }
+  const hasOp = (s) => /[+*/]|\d\s*-/.test(String(s ?? ""));
+  const numOr = (v, d = 0) => { const n = evalExpr(v); return Number.isNaN(n) ? d : n; };
+
+
+  // No interest (riba) category on purpose.
+  const INCOME_CATS = [
+    { id: "salary", name: "Salary" },
+    { id: "business", name: "Business" },
+    { id: "freelance", name: "Freelance" },
+    { id: "bonus", name: "Bonus" },
+    { id: "rent", name: "Rent received" },
+    { id: "gift", name: "Gift" },
+    { id: "other-income", name: "Other income" },
+  ];
+  const incomeName = (id) => INCOME_CATS.find((c) => c.id === id)?.name;
+
+  // Starting formats. Both use 40·30·5·5·10·10. Each item is [name, share of its bucket,
+  // fixed monthly payment, never fills a saving goal].
+  const LEDGER = [
+    { id: "needs", name: "Needs", pct: 40, kind: "spend",
+      items: [["Home Expense", 0.706, true], ["Uber", 0.176], ["Utilities", 0.118, true]] },
+    { id: "invest", name: "Investments", pct: 30, kind: "save",
+      items: [["Bhissi", 0.696, true], ["Allah's share", 0.304, true, true]] },
+    { id: "self", name: "Self improvement", pct: 5, kind: "spend",
+      items: [["Gym/nutrition", 1]] },
+    { id: "health", name: "Health", pct: 5, kind: "spend",
+      items: [["Medicines", 1]] },
+    { id: "emergency", name: "Emergency fund", pct: 10, kind: "save",
+      items: [["Saving", 1, true]] },
+    { id: "family", name: "Wife/Family", pct: 10, kind: "spend",
+      items: [["Pocket Money", 0.5, true], ["Swiggy/Blinkit", 0.2], ["Shopping", 0.2], ["Dineout", 0.1]] },
+  ];
+  const SPLIT = [
+    { id: "needs", name: "Needs", pct: 40, kind: "spend", hint: "Rent, groceries, bills, transport",
+      items: [["Rent or home EMI", 0.45, true], ["Groceries", 0.25], ["Electricity, gas & water", 0.1, true], ["Transport & fuel", 0.12], ["Phone & internet", 0.08, true]] },
+    { id: "invest", name: "Investments", pct: 30, kind: "save", hint: "Halal funds, gold, business, property",
+      items: [["Monthly SIP", 0.6, true], ["Gold", 0.2], ["Stocks & business", 0.2]] },
+    { id: "self", name: "Self improvement", pct: 5, kind: "spend", hint: "Books, courses, Islamic learning",
+      items: [["Books & courses", 0.6], ["Skills & certifications", 0.4]] },
+    { id: "health", name: "Health", pct: 5, kind: "spend", hint: "Gym, doctor, insurance",
+      items: [["Gym & sport", 0.4], ["Doctor & medicines", 0.3], ["Health insurance", 0.3, true]] },
+    { id: "emergency", name: "Emergency fund", pct: 10, kind: "save", hint: "Six months of needs, kept liquid",
+      items: [["Emergency savings", 1, true]] },
+    { id: "family", name: "Family", pct: 10, kind: "spend", hint: "Parents, relatives, gifts, sadaqah",
+      items: [["Parents", 0.6, true], ["Relatives & occasions", 0.25], ["Sadaqah", 0.15]] },
+  ];
+  const FORMATS = {
+    ledger: { name: "Hisaab Ledger", desc: "The original Hisaab plan, line for line: Home Expense, Uber, Bhissi, Allah's share and more. 12 lines.", buckets: LEDGER },
+    starter: { name: "Detailed starter", desc: "A fuller list: rent, groceries, bills, SIP, gold, insurance, parents and more. 17 lines.", buckets: SPLIT },
+  };
+  const fmtBuckets = () => (FORMATS[OB.format] || FORMATS.ledger).buckets;
+
+  function roundNice(v) { const a = Math.abs(v); const step = a >= 20000 ? 100 : a >= 2000 ? 10 : 1; return Math.round(v / step) * step; }
+  // Spread `alloc` over items by weight; the last item takes the remainder so the bucket matches exactly.
+  function fillItems(items, alloc, weights) {
+    let used = 0;
+    items.forEach((it, k) => {
+      if (k === items.length - 1) it.planned = Math.max(0, Math.round((alloc - used) * 100) / 100);
+      else { it.planned = Math.max(0, roundNice(alloc * weights[k])); used += it.planned; }
+      delete it.formula;
+    });
+  }
+
+  // ---------- storage (this device only) ----------
+  const KEY = "hisaab-v1";
+  function storageWorks() { try { localStorage.setItem(KEY + ".t", "1"); localStorage.removeItem(KEY + ".t"); return true; } catch (e) { return false; } }
+  function normalize(d) {
+    if (!d || typeof d !== "object") return null;
+    d.v = 1;
+    d.entries = d.entries && typeof d.entries === "object" ? d.entries : {};
+    // Only a first name is kept; backups from the WhatsApp version carry more.
+    if (d.profile) d.profile = { name: String(d.profile.name || ""), joinedAt: d.profile.joinedAt || Date.now() };
+    if (d.plan) {
+      d.plan.buckets = Array.isArray(d.plan.buckets) ? d.plan.buckets : [];
+      for (const b of d.plan.buckets) { b.items = Array.isArray(b.items) ? b.items : []; if (b.kind !== "save") b.kind = "spend"; }
+      d.plan.goals = Array.isArray(d.plan.goals) ? d.plan.goals : [];
+      d.plan.zakat = d.plan.zakat && typeof d.plan.zakat === "object" ? d.plan.zakat : { nisab: 0, other: 0 };
+    }
+    return d;
+  }
+  function load() { try { const raw = localStorage.getItem(KEY); return raw ? normalize(JSON.parse(raw)) : null; } catch (e) { return null; } }
+  let warned = false;
+  function persist() {
+    try {
+      localStorage.setItem(KEY, JSON.stringify(S.data));
+      if (!S.storageOk) { S.storageOk = true; renderChrome(); }
+      return true;
+    } catch (e) {
+      S.storageOk = false;
+      if (!warned) { warned = true; toast(e && e.name === "QuotaExceededError" ? "This device's storage is full. Save a backup from Settings." : "This browser isn't keeping your data. Save a backup from Settings."); }
+      renderChrome();
+      return false;
+    }
+  }
+
+  // ---------- state ----------
+  const TABS = ["overview", "passbook", "trends", "plan", "profile", "help"];
+  const S = {
+    data: null, storageOk: true, dl: null,
+    idx: new Map(),
+    ym: thisYm(),
+    tab: "overview",
+    filter: "all", q: "",
+    draft: null, dirty: false,
+    pendingRestore: null,
+  };
+  const OB = { step: 1, takeHome: null, currency: "INR", pcts: {}, efTarget: null, efOpening: 0, g2name: "", g2target: null, g2opening: 0 };
+  function resetOb() {
+    Object.assign(OB, { step: 1, format: "ledger", takeHome: null, currency: guessCurrency(), efTarget: null, efTouched: false, efOpening: 0, g2name: "", g2target: null, g2opening: 0 });
+    OB.pcts = Object.fromEntries(fmtBuckets().map((d) => [d.id, d.pct]));
+  }
+  resetOb();
+  try { const t = localStorage.getItem("hisaab.tab"); if (t) S.tab = t; } catch (e) {}
+  const hashTab = (location.hash || "").slice(1);
+  if (TABS.includes(hashTab)) S.tab = hashTab;
+  if (!TABS.includes(S.tab)) S.tab = "overview";
+
+  const setupDone = () => !!(S.data && S.data.setupDone && S.data.profile && S.data.plan && Array.isArray(S.data.plan.buckets));
+
+  function reindex() {
+    S.idx = new Map();
+    for (const b of S.data?.plan?.buckets || []) for (const it of b.items || []) S.idx.set(it.id, { it, b });
+  }
+  const bucketColor = (b) => (b && Number.isInteger(b.slot) && b.slot >= 0 && b.slot < 6 ? `var(--s${b.slot + 1})` : "var(--s-other)");
+  function bucketOf(e) {
+    const ref = S.idx.get(e.item);
+    if (ref) return ref.b;
+    return (S.data?.plan?.buckets || []).find((b) => b.id === e.bucket) || null;
+  }
+  function labelOf(e) {
+    if (e.type === "income") return incomeName(e.item) || e.label || "Income";
+    if (e.item === "other") return e.label || "Other";
+    return S.idx.get(e.item)?.it.name || e.label || "Expense";
+  }
+  const goalById = (id) => (S.data?.plan?.goals || []).find((g) => g.id === id) || null;
+  function entriesOf(ym) {
+    const d = S.data?.entries?.[ym];
+    if (!d) return [];
+    return Object.entries(d)
+      .filter(([, e]) => e && typeof e.amount === "number" && typeof e.date === "string")
+      .map(([id, e]) => ({ ...e, id }))
+      .sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : (a.createdAt || 0) - (b.createdAt || 0)));
+  }
+  const allMonths = () => Object.keys(S.data?.entries || {}).sort();
+
+  function planTotals(P) {
+    const t = { pct: 0, items: 0, save: 0, spend: 0, fixed: 0, variable: 0 };
+    for (const b of P.buckets) {
+      t.pct += +b.pct || 0;
+      for (const it of b.items || []) {
+        const v = +it.planned || 0;
+        t.items += v;
+        if (b.kind === "save") t.save += v; else t.spend += v;
+        if (it.fixed) t.fixed += v;
+        if (!it.fixed && b.kind !== "save") t.variable += v;
+      }
+    }
+    return t;
+  }
+
+  function stats(ym) {
+    const P = S.data.plan;
+    const es = entriesOf(ym);
+    const takeHome = +P.takeHome || 0;
+    const byItem = {}, byBucket = {};
+    let income = 0, spent = 0, saved = 0, salaryLogged = false;
+    const daily = new Array(daysIn(ym)).fill(0);
+    for (const e of es) {
+      if (e.type === "income") { income += e.amount; if (e.item === "salary") salaryLogged = true; continue; }
+      const ref = S.idx.get(e.item);
+      const b = bucketOf(e);
+      const bid = b ? b.id : "other";
+      byItem[e.item] = (byItem[e.item] || 0) + e.amount;
+      byBucket[bid] = (byBucket[bid] || 0) + e.amount;
+      const isSave = b && b.kind === "save";
+      if (isSave) saved += e.amount; else spent += e.amount;
+      if (!(ref && ref.it.fixed) && !isSave) {
+        const di = +e.date.slice(8, 10) - 1;
+        if (di >= 0 && di < daily.length) daily[di] += e.amount;
+      }
+    }
+    let dueFixed = 0;
+    const fixed = [];
+    for (const b of P.buckets) for (const it of b.items || []) if (it.fixed) {
+      const got = byItem[it.id] || 0;
+      const due = Math.max(0, (+it.planned || 0) - got);
+      dueFixed += due;
+      fixed.push({ it, b, got, due });
+    }
+    const basis = income + (salaryLogged ? 0 : takeHome);
+    const free = basis - spent - saved - dueFixed;
+    return { es, byItem, byBucket, income, spent, saved, salaryLogged, dueFixed, fixed, basis, free, daily, takeHome };
+  }
+
+  function goalSums() {
+    const m = {};
+    for (const ym of allMonths()) for (const e of entriesOf(ym)) if (e.type !== "income" && e.goal) m[e.goal] = (m[e.goal] || 0) + e.amount;
+    return m;
+  }
+  function goalRate(g, P) {
+    const b = P.buckets.find((x) => x.id === g.bucket);
+    if (!b) return 0;
+    const n = P.goals.filter((x) => x.bucket === b.id).length || 1;
+    return ((+b.pct || 0) / 100) * (+P.takeHome || 0) / n;
+  }
+  function savedAllTime() {
+    let s = 0;
+    for (const ym of allMonths()) for (const e of entriesOf(ym)) {
+      if (e.type === "income") continue;
+      const b = bucketOf(e);
+      if (b && b.kind === "save") s += e.amount;
+    }
+    return s;
+  }
+
+  function defaultDate() {
+    const cur = thisYm();
+    if (S.ym === cur) return todayISO();
+    if (S.ym < cur) return `${S.ym}-${pad(daysIn(S.ym))}`;
+    return `${S.ym}-01`;
+  }
+
+  // ---------- entry writes ----------
+  function entryBody(e) {
+    const b = { type: e.type, amount: e.amount, date: e.date, bucket: e.bucket, item: e.item, label: e.label, note: e.note || "", createdAt: e.createdAt };
+    if (e.goal) b.goal = e.goal;
+    return b;
+  }
+  function writeEntry(e) {
+    const ym = e.date.slice(0, 7);
+    (S.data.entries[ym] = S.data.entries[ym] || {})[e.id] = entryBody(e);
+    persist(); render();
+  }
+  function deleteEntry(id, ym) {
+    const m = S.data.entries[ym];
+    if (m) { delete m[id]; if (!Object.keys(m).length) delete S.data.entries[ym]; }
+    persist(); render();
+  }
+
+  // ---------- copy + share ----------
+  async function copyText(text) {
+    try { await navigator.clipboard.writeText(text); return true; } catch (e) { return false; }
+  }
+  const appUrl = () => location.href.split("#")[0];
+  const SHARE_TEXT = "Hisaab splits your take-home pay 40·30·5·5·10·10 into Needs, Investments, Self improvement, Health, Emergency fund and Family. Free, and your data stays on your phone.";
+  function footer() {
+    const links = [
+      LINKS.github ? `<a href="${esc(LINKS.github)}" target="_blank" rel="noopener">GitHub</a>` : "",
+      LINKS.pinterest ? `<a href="${esc(LINKS.pinterest)}" target="_blank" rel="noopener">Pinterest</a>` : "",
+    ].filter(Boolean).join(" · ");
+    return `<footer class="foot"><span>Hisaab is free and open source. Your data stays on this device.</span>${links ? `<span>${links}</span>` : ""}</footer>`;
+  }
+
+  // ---------- toast + tooltip ----------
+  let toastTimer;
+  function toast(msg, undo) {
+    const t = $("#toast");
+    t.innerHTML = `<span>${esc(msg)}</span>` + (undo ? `<button type="button" id="toastUndo">Undo</button>` : "");
+    t.hidden = false;
+    if (undo) $("#toastUndo").onclick = () => { t.hidden = true; undo(); };
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => { t.hidden = true; }, undo ? 6500 : 3800);
+  }
+  const tip = $("#tip");
+  function moveTip(x, y, text) {
+    tip.textContent = text;
+    tip.hidden = false;
+    const r = tip.getBoundingClientRect();
+    let left = x + 12, top = y - r.height - 10;
+    if (left + r.width > window.innerWidth - 8) left = x - r.width - 12;
+    if (left < 8) left = 8;
+    if (top < 8) top = y + 16;
+    tip.style.left = left + "px";
+    tip.style.top = top + "px";
+  }
+  document.addEventListener("pointermove", (e) => {
+    const t = e.target.closest && e.target.closest("[data-tip]");
+    if (!t) { tip.hidden = true; return; }
+    moveTip(e.clientX, e.clientY, t.getAttribute("data-tip"));
+  });
+  document.addEventListener("pointerdown", (e) => {
+    const t = e.target.closest && e.target.closest("[data-tip]");
+    if (t && e.pointerType !== "mouse") moveTip(e.clientX, e.clientY, t.getAttribute("data-tip"));
+  });
+  document.addEventListener("scroll", () => { tip.hidden = true; }, { passive: true });
+
+  // ---------- onboarding ----------
+  const obBrand = (right) => `<div class="ob-top"><div class="brand"><span class="mark" aria-hidden="true">₹</span><div><div class="wordmark">Hisaab</div><div class="tagline">Monthly budget book</div></div></div>${right || ""}</div>`;
+
+  function renderOb() {
+    $("#app").hidden = true;
+    $("#fab").hidden = true;
+    $("#ob").hidden = false;
+    if (OB.step === 2) obStep2();
+    else if (OB.step === 3) obStep3();
+    else obStep1();
+  }
+
+  function obStep1() {
+    const p = S.data?.profile || {};
+    setCurrency(OB.currency);
+    const ex = EXAMPLE_PAY[CUR.code] || 50000;
+    const bar = SPLIT.map((d, k) => `<span style="flex:${d.pct};background:var(--s${k + 1})"></span>`).join("");
+    const tiles = SPLIT.map((d, k) => `<li>
+        <span class="t-pct">${d.pct}<small>%</small></span>
+        <span class="t-name"><span class="sw" style="background:var(--s${k + 1})"></span>${esc(d.name)}</span>
+        <span class="t-amt">${rs0((ex * d.pct) / 100)}</span>
+        <span class="t-hint">${esc(d.hint)}</span>
+      </li>`).join("");
+    $("#ob").innerHTML = obBrand() + (S.storageOk ? "" : `<div class="banner" role="status">This browser won't keep your data, so it will be gone when you close it. Open Hisaab in a normal browser window, not a private one.</div>`) + `<div class="ob two">
+      <section class="ob-pitch" aria-labelledby="obH1">
+        <div class="eyebrow">The Hisaab split</div>
+        <h1 id="obH1">Give every ${esc(UNIT[CUR.code] || "rupee")} a job before the month begins.</h1>
+        <p class="lede">Hisaab splits your take-home pay into six buckets, tracks what you spend, and shows your savings goals filling up. This is the split it's built around:</p>
+        <div class="sbar" role="img" aria-label="${esc(SPLIT.map((d) => `${d.name} ${d.pct}%`).join(", "))}">${bar}</div>
+        <ul class="tiles">${tiles}</ul>
+        <p class="ex-note">Example on a take-home of ${rs0(ex)} a month. You set your own income and percentages in the next step.</p>
+        <ul class="values">
+          <li>Free and open source. No sign-up, no bank login, no ads.</li>
+          <li>Your money data stays in this browser on your device. Nothing is sent anywhere.</li>
+          <li>No interest (riba) income category, and a Zakat estimate built in.</li>
+          <li>Change any percentage, bucket or goal to fit your life.</li>
+        </ul>
+      </section>
+      <section class="card ob-card" aria-labelledby="obH2">
+        <div class="ob-step">Step 1 of 3 · Welcome</div>
+        <h2 id="obH2">Set up your budget</h2>
+        <p class="sub">It takes about two minutes. Nothing you enter leaves this device.</p>
+        <form id="obForm1" class="form" novalidate>
+          <label class="field"><span>Your first name <span class="opt">(optional, so Hisaab can greet you)</span></span><input id="obName" autocomplete="given-name" maxlength="80" value="${esc(p.name || "")}"></label>
+          <div class="ob-actions"><button type="submit" class="btn primary">Get started</button></div>
+        </form>
+        <div class="demo-cta">
+          <p>Just looking? Explore Hisaab filled with six months of sample data first.</p>
+          <button type="button" class="btn" id="obDemo">Explore with sample data</button>
+        </div>
+      </section>
+    </div>` + footer();
+  }
+
+  function saveProfileFromOb(name) {
+    S.data = S.data || { v: 1, createdAt: Date.now(), entries: {} };
+    S.data.profile = { name, joinedAt: S.data.profile?.joinedAt || Date.now() };
+    persist();
+  }
+  function obGo(step) { OB.step = step; renderOb(); window.scrollTo(0, 0); }
+
+  function obStep2() {
+    setCurrency(OB.currency);
+    const opts = CURRENCIES.map((c) => `<option value="${c.code}"${c.code === OB.currency ? " selected" : ""}>${c.code} · ${esc(c.name)}</option>`).join("");
+    const fmts = Object.entries(FORMATS).map(([key, f], k) => `<label class="fmt-opt"><input type="radio" name="obFmt" id="obFmt-${key}" value="${key}"${OB.format === key ? " checked" : ""}><span><b>Format ${k + 1} · ${esc(f.name)}</b><small>${esc(f.desc)}</small></span></label>`).join("");
+    const rows = fmtBuckets().map((d, k) => `<div class="ob-row">
+        <span class="sw" style="background:var(--s${k + 1})"></span>
+        <div class="nm"><b>${esc(d.name)}</b><small>${esc(d.items.map((x) => x[0]).join(", "))}</small></div>
+        <label class="pct-in"><input id="obPct-${d.id}" data-obpct="${d.id}" inputmode="decimal" value="${esc(OB.pcts[d.id])}" aria-label="${esc(d.name)} share in percent"><span>%</span></label>
+        <span class="ob-amt" id="obAmt-${d.id}"></span>
+      </div>`).join("");
+    $("#ob").innerHTML = obBrand() + `<div class="ob"><section class="card ob-card ob-narrow" aria-labelledby="obH2">
+      <div class="ob-step">Step 2 of 3 · Income and format</div>
+      <h2 id="obH2">What do you take home each month?</h2>
+      <p class="sub">Your salary after tax and deductions. Then pick a starting format and check how much each bucket gets.</p>
+      <div class="ob-income">
+        <label class="amt"><span class="cur" id="obCurSym" aria-hidden="true">${esc(CUR.sym.trim())}</span><input id="obTake" inputmode="decimal" autocomplete="off" placeholder="0" aria-label="Monthly take-home" value="${OB.takeHome ? esc(OB.takeHome) : ""}"></label>
+        <label class="field"><span>Currency</span><select id="obCur">${opts}</select></label>
+      </div>
+      <fieldset class="fmt"><legend>Starting format</legend><div class="fmt-opts">${fmts}</div></fieldset>
+      <div class="ob-split">${rows}</div>
+      <div class="ob-total"><span>Total</span><span id="obPctPill"></span><span class="grow"></span><button type="button" class="btn ghost small" id="obResetSplit">Use 40·30·5·5·10·10</button></div>
+      <p class="err" id="obErr2" role="alert" hidden></p>
+      <div class="ob-actions"><button type="button" class="btn" id="obBack">Back</button><span class="grow"></span><button type="button" class="btn primary" id="obNext2">Next: goals</button></div>
+    </section></div>`;
+    updateOb2();
+  }
+  function obPctTotal() { return fmtBuckets().reduce((a, d) => a + (+OB.pcts[d.id] || 0), 0); }
+  function updateOb2() {
+    const th = OB.takeHome || 0;
+    for (const d of fmtBuckets()) { const n = document.getElementById("obAmt-" + d.id); if (n) n.textContent = th ? rs0((th * (+OB.pcts[d.id] || 0)) / 100) + " a month" : "—"; }
+    const tot = obPctTotal();
+    const pill = $("#obPctPill");
+    if (pill) pill.innerHTML = Math.abs(tot - 100) < 0.01 ? `<span class="pill good">${nf.format(tot)}%</span>` : `<span class="pill warn">${nf.format(tot)}%, should be 100%</span>`;
+    const sym = $("#obCurSym"); if (sym) sym.textContent = CUR.sym.trim();
+  }
+
+  function obStep3() {
+    setCurrency(OB.currency);
+    const needs = ((OB.takeHome || 0) * (+OB.pcts.needs || 0)) / 100;
+    const sugg = roundNice(6 * needs);
+    if (OB.efTarget == null) OB.efTarget = sugg;
+    $("#ob").innerHTML = obBrand() + `<div class="ob"><section class="card ob-card ob-narrow" aria-labelledby="obH2">
+      <div class="ob-step">Step 3 of 3 · Goals</div>
+      <h2 id="obH2">What are you saving towards?</h2>
+      <p class="sub">Money you log to Emergency fund or Investments fills these goals. You can add more or change them any time in Plan.</p>
+      <div class="goalbox">
+        <h3><span class="sw" style="background:var(--s5)"></span>Emergency fund</h3>
+        <div class="grid2">
+          <label class="field"><span>Target</span><input id="obEfTarget" inputmode="decimal" value="${esc(OB.efTarget || "")}"></label>
+          <label class="field"><span>Already saved</span><input id="obEfOpen" inputmode="decimal" placeholder="0" value="${OB.efOpening ? esc(OB.efOpening) : ""}"></label>
+        </div>
+        <p class="suggest">Six months of Needs comes to ${rs0(sugg)}. <button type="button" class="linkbtn" id="obUseSugg">Use this</button></p>
+      </div>
+      <div class="goalbox">
+        <h3><span class="sw" style="background:var(--s2)"></span>Another goal <span class="opt">optional</span></h3>
+        <label class="field"><span>Name</span><input id="obG2Name" maxlength="60" placeholder="Umrah, house deposit, car, wedding" value="${esc(OB.g2name)}"></label>
+        <div class="grid2">
+          <label class="field"><span>Target</span><input id="obG2Target" inputmode="decimal" placeholder="0" value="${OB.g2target ? esc(OB.g2target) : ""}"></label>
+          <label class="field"><span>Already saved</span><input id="obG2Open" inputmode="decimal" placeholder="0" value="${OB.g2opening ? esc(OB.g2opening) : ""}"></label>
+        </div>
+        <p class="suggest">Your Investments bucket funds this goal. You can pick a different bucket in Plan.</p>
+      </div>
+      <p class="err" id="obErr3" role="alert" hidden style="margin-top:14px"></p>
+      <div class="ob-actions" style="margin-top:18px"><button type="button" class="btn" id="obBack">Back</button><span class="grow"></span><button type="button" class="btn primary" id="obFinish">Start my Hisaab</button></div>
+    </section></div>`;
+  }
+
+  function buildPlan() {
+    const th = OB.takeHome;
+    const buckets = fmtBuckets().map((d, k) => {
+      const pct = +OB.pcts[d.id] || 0;
+      const items = d.items.map(([name, , fixed, nogoal]) => { const it = { id: newId("i"), name, planned: 0 }; if (fixed) it.fixed = true; if (nogoal) it.nogoal = true; return it; });
+      fillItems(items, (pct / 100) * th, d.items.map((x) => x[1]));
+      return { id: d.id, name: d.name, pct, kind: d.kind, slot: k, items };
+    });
+    const goals = [{ id: newId("g"), name: "Emergency fund", target: OB.efTarget, opening: OB.efOpening || 0, by: "", bucket: "emergency" }];
+    if (OB.g2target > 0) goals.push({ id: newId("g"), name: OB.g2name || "Savings goal", target: OB.g2target, opening: OB.g2opening || 0, by: "", bucket: "invest" });
+    return { format: OB.format, currency: OB.currency, takeHome: th, buckets, goals, zakat: { nisab: 0, other: 0 } };
+  }
+
+  $("#ob").addEventListener("input", (e) => {
+    const t = e.target;
+    if (t.id === "obTake") { const n = evalExpr(t.value); OB.takeHome = n > 0 ? n : null; updateOb2(); }
+    else if (t.dataset.obpct) { const n = evalExpr(t.value); const ok = !Number.isNaN(n) && n >= 0 && n <= 100; t.setAttribute("aria-invalid", ok ? "false" : "true"); OB.pcts[t.dataset.obpct] = ok ? n : 0; updateOb2(); }
+    else if (t.id === "obCur") { OB.currency = t.value; setCurrency(OB.currency); updateOb2(); }
+    else if (t.id === "obEfTarget") { OB.efTarget = numOr(t.value, 0); OB.efTouched = true; }
+    else if (t.id === "obEfOpen") OB.efOpening = numOr(t.value, 0);
+    else if (t.id === "obG2Name") OB.g2name = t.value;
+    else if (t.id === "obG2Target") OB.g2target = numOr(t.value, 0);
+    else if (t.id === "obG2Open") OB.g2opening = numOr(t.value, 0);
+  });
+  // Radios fire "change" in every browser; "input" isn't reliable for them in older Safari.
+  $("#ob").addEventListener("change", (e) => {
+    const t = e.target;
+    if (t.name !== "obFmt" || !FORMATS[t.value]) return;
+    OB.format = t.value;
+    for (const d of fmtBuckets()) if (!(d.id in OB.pcts)) OB.pcts[d.id] = d.pct;
+    obStep2();
+    const r = document.getElementById("obFmt-" + t.value); if (r) r.focus();
+  });
+  $("#ob").addEventListener("submit", (e) => {
+    if (e.target.id !== "obForm1") return;
+    e.preventDefault();
+    saveProfileFromOb($("#obName").value.trim());
+    obGo(2);
+  });
+  $("#ob").addEventListener("click", (e) => {
+    const t = e.target.closest("a, button");
+    if (!t) return;
+    if (t.id === "obBack") obGo(OB.step === 3 ? 2 : 1);
+    else if (t.id === "obDemo") startDemo(false);
+    else if (t.id === "obResetSplit") {
+      for (const d of fmtBuckets()) { OB.pcts[d.id] = d.pct; const n = document.getElementById("obPct-" + d.id); if (n) { n.value = d.pct; n.setAttribute("aria-invalid", "false"); } }
+      updateOb2();
+    } else if (t.id === "obNext2") {
+      const err = $("#obErr2");
+      const tot = obPctTotal();
+      if (!(OB.takeHome > 0)) { err.textContent = "Enter your monthly take-home to continue."; err.hidden = false; $("#obTake").focus(); return; }
+      if (document.querySelector("#ob [data-obpct][aria-invalid=\"true\"]")) { err.textContent = "Each share must be a number from 0 to 100."; err.hidden = false; return; }
+      if (Math.abs(tot - 100) >= 0.01) { err.textContent = `The shares add up to ${nf.format(tot)}%. Adjust them to make 100%.`; err.hidden = false; return; }
+      err.hidden = true;
+      if (!OB.efTouched) OB.efTarget = null;
+      obGo(3);
+    } else if (t.id === "obUseSugg") {
+      const needs = ((OB.takeHome || 0) * (+OB.pcts.needs || 0)) / 100;
+      OB.efTarget = roundNice(6 * needs);
+      OB.efTouched = true;
+      $("#obEfTarget").value = OB.efTarget;
+    } else if (t.id === "obFinish") {
+      const err = $("#obErr3");
+      if (!(OB.efTarget > 0)) { err.textContent = "Enter a target for your emergency fund."; err.hidden = false; return; }
+      if (OB.g2name.trim() && !(OB.g2target > 0)) { err.textContent = `Enter a target for ${OB.g2name.trim()}, or clear its name.`; err.hidden = false; return; }
+      OB.g2name = OB.g2name.trim();
+      S.data.plan = buildPlan();
+      S.data.setupDone = true;
+      S.data.entries = S.data.entries || {};
+      normalize(S.data);
+      persist();
+      setCurrency(S.data.plan.currency);
+      reindex();
+      S.tab = "overview";
+      S.ym = thisYm();
+      render();
+      window.scrollTo(0, 0);
+      startTour();
+    }
+  });
+
+  // ---------- header + tabs ----------
+  function renderChrome() {
+    if (!setupDone()) return;
+    $("#mLabel").textContent = monthLong(S.ym);
+    $("#mLabel").setAttribute("aria-label", `${monthLong(S.ym)}. Jump to this month`);
+    for (const b of document.querySelectorAll(".tab")) {
+      const on = b.dataset.tab === S.tab;
+      b.setAttribute("aria-selected", on ? "true" : "false");
+      b.tabIndex = on ? 0 : -1;
+    }
+    for (const id of TABS) $("#p-" + id).hidden = id !== S.tab;
+    $("#fab").hidden = ["plan", "profile", "help"].includes(S.tab);
+    const fn = firstName(S.data.profile.name);
+    $("#tagline").textContent = `${fn ? fn + " · " : ""}take-home ${rs0(+S.data.plan.takeHome || 0)}`;
+    $("#demoBar").hidden = !S.data.demo;
+    const banner = $("#banner");
+    if (!S.storageOk) {
+      banner.textContent = "This browser isn't keeping your data, so it will be gone when you close it. Save a backup from the Settings tab.";
+      banner.hidden = false;
+    } else banner.hidden = true;
+  }
+
+  function render() {
+    if (!setupDone()) { renderOb(); return; }
+    $("#ob").hidden = true;
+    $("#ob").innerHTML = "";
+    $("#app").hidden = false;
+    renderChrome();
+    if (S.tab === "overview") renderOverview();
+    else if (S.tab === "passbook") renderPassbook();
+    else if (S.tab === "trends") renderTrends();
+    else if (S.tab === "plan") renderPlan();
+    else if (S.tab === "profile") renderProfile();
+    else if (S.tab === "help") renderHelp();
+    if (T.active) requestAnimationFrame(placeTour);
+  }
+
+  // ---------- overview ----------
+  function backupNotice() {
+    const d = S.data;
+    if (d.demo) return "";
+    const n = allMonths().reduce((a, ym) => a + Object.keys(d.entries[ym] || {}).length, 0);
+    const days = Math.floor((Date.now() - (d.lastBackupAt || 0)) / 864e5);
+    if (d.lastBackupAt ? days < 30 : n < 5) return "";
+    const when = d.lastBackupAt ? `Your last backup was ${days} days ago.` : "You haven't saved a backup yet.";
+    return `<div class="notice"><p>${when} Your Hisaab lives only on this device, so save a copy now.</p><button type="button" class="btn small primary" data-goto="profile" data-anchor="bkSec">Back up now</button></div>`;
+  }
+
+  function renderOverview() {
+    const el = $("#p-overview");
+    const P = S.data.plan, st = stats(S.ym), T = planTotals(P);
+    const cur = thisYm();
+    const isCur = S.ym === cur, isPast = S.ym < cur;
+    const mName = monthOnly(S.ym);
+    const daysLeft = isCur ? daysIn(S.ym) - new Date().getDate() + 1 : 0;
+
+    // hero
+    let eyebrow, sub;
+    if (st.free >= 0) {
+      eyebrow = isPast ? `Left over · ${mName}` : `Free to spend · ${mName}`;
+      if (isCur) sub = `About <strong>${rs0(st.free / daysLeft)}</strong> a day for the ${daysLeft} day${daysLeft > 1 ? "s" : ""} left, after fixed payments still due.`;
+      else if (isPast) sub = `What remained of ${mName}'s income after spending, saving and fixed payments.`;
+      else sub = `Planned for ${mName}, before anything is logged.`;
+    } else {
+      eyebrow = `Over budget · ${mName}`;
+      sub = `Spending, savings and fixed payments come to ${rs0(-st.free)} more than this month's income.`;
+    }
+    const note = st.salaryLogged ? "" : `<p class="hero-note">Counts your planned take-home of ${rs0(st.takeHome)} until you log your salary.</p>`;
+    const total = Math.max(st.basis, st.spent + st.saved + st.dueFixed) || 1;
+    const segs = [
+      ["k-spent", st.spent, "Spent"],
+      ["k-saved", st.saved, "Saved & invested"],
+      ["k-due", st.dueFixed, "Fixed still due"],
+      ["k-free", Math.max(0, st.free), "Free to spend"],
+    ].filter((s) => s[1] > 0);
+    const splitHtml = segs.map(([k, v, l]) => `<span class="${k}" style="width:${(v / total) * 100}%" data-tip="${esc(l)}: ${rs0(v)}"></span>`).join("");
+    const dueCount = st.fixed.filter((f) => f.due > 0).length;
+    const hero = `
+      <section class="hero" aria-label="Month summary">
+        <div class="eyebrow">${esc(eyebrow)}</div>
+        <div class="hero-num${st.free < 0 ? " over" : ""}">${rs0(st.free)}</div>
+        <p class="hero-sub">${sub}</p>
+        ${note}
+        <div class="split" role="img" aria-label="${esc(segs.map((s) => `${s[2]} ${rs0(s[1])}`).join(", "))}">${splitHtml}</div>
+        <dl class="stats">
+          <div><dt><span class="key" style="background:var(--good)"></span>Income logged</dt><dd>${rs0(st.income)}<small>${st.salaryLogged ? "Salary received" : "Salary not logged yet"}</small></dd></div>
+          <div><dt><span class="key k-spent"></span>Spent</dt><dd>${rs0(st.spent)}<small>of ${rs0(T.spend)} planned</small></dd></div>
+          <div><dt><span class="key k-saved"></span>Saved &amp; invested</dt><dd>${rs0(st.saved)}<small>of ${rs0(T.save)} planned</small></dd></div>
+          <div><dt><span class="key k-due"></span>Fixed still due</dt><dd>${rs0(st.dueFixed)}<small>${dueCount} payment${dueCount === 1 ? "" : "s"}</small></dd></div>
+        </dl>
+      </section>`;
+
+    // buckets
+    const bucketRows = P.buckets.map((b) => {
+      const alloc = ((+b.pct || 0) / 100) * st.takeHome;
+      const actual = st.byBucket[b.id] || 0;
+      const planned = (b.items || []).reduce((a, it) => a + (+it.planned || 0), 0);
+      const ratio = alloc > 0 ? actual / alloc : actual > 0 ? 2 : 0;
+      let pill;
+      if (b.kind === "save") pill = ratio >= 1 ? `<span class="pill good">Target met</span>` : `<span class="pill neutral">${rs0(alloc - actual)} to go</span>`;
+      else pill = ratio > 1 ? `<span class="pill bad">Over by ${rs0(actual - alloc)}</span>` : ratio >= 0.9 ? `<span class="pill warn">Near limit</span>` : `<span class="pill good">On track</span>`;
+      const pDiff = alloc - planned;
+      const noteTxt = Math.abs(pDiff) < 1 ? "" : pDiff < 0
+        ? `Planned items add up to ${rs0(planned)}, ${rs0(-pDiff)} more than this bucket's ${esc(b.pct)}%.`
+        : `Planned items add up to ${rs0(planned)}, leaving ${rs0(pDiff)} of this bucket unassigned.`;
+      const items = (b.items || []).map((it) => {
+        const got = st.byItem[it.id] || 0;
+        const pl = +it.planned || 0;
+        const d = pl - got;
+        const w = pl > 0 ? Math.min(100, (got / pl) * 100) : got > 0 ? 100 : 0;
+        const tipTxt = it.formula ? ` data-tip="Planned: ${esc(it.formula.replace(/([+\-*/])/g, " $1 "))}"` : "";
+        const diffTxt = b.kind === "save"
+          ? (d <= 0 ? (d < 0 ? rs0(-d) + " extra" : "Done") : rs0(d) + " to go")
+          : (d < 0 ? rs0(-d) + " over" : rs0(d) + " left");
+        return `<li>
+          <span class="i-name"${tipTxt}>${esc(it.name)}${it.fixed ? ` <span class="tag">Fixed</span>` : ""}</span>
+          <span class="i-vals">${rs0(got)} <span class="of">/ ${rs0(pl)}</span></span>
+          <span class="i-diff ${d < 0 && b.kind !== "save" ? "neg" : "pos"}">${diffTxt}</span>
+          <span class="ibar" aria-hidden="true"><span style="width:${w}%"></span></span>
+        </li>`;
+      }).join("");
+      return `<div class="bucket" style="--c:${bucketColor(b)}">
+        <div class="b-top">
+          <span class="sw" style="background:${bucketColor(b)}"></span>
+          <h3>${esc(b.name)}</h3><span class="b-pct">${esc(b.pct)}%</span>${b.kind === "save" ? ` <span class="tag">Saving</span>` : ""}
+          <span class="grow"></span>
+          <span class="b-amt">${rs0(actual)} <span class="of">of ${rs0(alloc)}</span></span>
+          ${pill}
+        </div>
+        <div class="bar" role="img" aria-label="${esc(b.name)}: ${rs0(actual)} of ${rs0(alloc)}"><span style="width:${Math.min(100, ratio * 100)}%"></span></div>
+        ${noteTxt ? `<p class="b-note">${noteTxt}</p>` : ""}
+        <ul class="items">${items}</ul>
+      </div>`;
+    }).join("");
+    const other = st.byBucket.other || 0;
+    const otherRow = other > 0 ? `<div class="bucket" style="--c:var(--s-other)">
+        <div class="b-top"><span class="sw" style="background:var(--s-other)"></span><h3>Outside plan</h3><span class="grow"></span><span class="b-amt">${rs0(other)}</span><span class="pill neutral">Unbudgeted</span></div>
+        <p class="b-note">Spending logged as "Other". Give it a line in the Plan tab if it happens every month.</p>
+      </div>` : "";
+    const buckets = `<section class="card buckets">
+        <div class="card-head"><h2>Where it's going</h2><p class="sub">Each bucket is a share of your ${rs0(st.takeHome)} take-home.</p></div>
+        ${bucketRows}${otherRow}
+      </section>`;
+
+    // fixed payments
+    const fxRows = [];
+    fxRows.push(st.salaryLogged
+      ? `<li class="done"><span class="chk" aria-hidden="true">✓</span><div class="fx-main"><div class="fx-name">Salary</div><div class="fx-meta">Credit · ${rs0(st.income)} logged</div></div><span class="fx-ok">Received</span></li>`
+      : `<li><span class="chk" aria-hidden="true"></span><div class="fx-main"><div class="fx-name">Salary</div><div class="fx-meta">Credit · ${rs0(st.takeHome)} expected</div></div><button type="button" class="btn small" data-log="salary">Log ${rs0(st.takeHome)}</button></li>`);
+    let doneCount = st.salaryLogged ? 1 : 0;
+    for (const f of st.fixed) {
+      const pl = +f.it.planned || 0;
+      if (f.due <= 0) {
+        doneCount++;
+        fxRows.push(`<li class="done"><span class="chk" aria-hidden="true">✓</span><div class="fx-main"><div class="fx-name">${esc(f.it.name)}</div><div class="fx-meta">${esc(f.b.name)} · ${rs0(f.got)} logged</div></div><span class="fx-ok">${f.b.kind === "save" ? "Saved" : "Paid"}</span></li>`);
+      } else if (f.got > 0) {
+        const p = Math.round((f.got / pl) * 100);
+        fxRows.push(`<li class="partial"><span class="chk" aria-hidden="true" style="--p:${p}%"></span><div class="fx-main"><div class="fx-name">${esc(f.it.name)}</div><div class="fx-meta">${rs0(f.got)} of ${rs0(pl)} logged</div></div><button type="button" class="btn small" data-log="${esc(f.it.id)}">Log ${rs0(f.due)}</button></li>`);
+      } else {
+        fxRows.push(`<li><span class="chk" aria-hidden="true"></span><div class="fx-main"><div class="fx-name">${esc(f.it.name)}</div><div class="fx-meta">${esc(f.b.name)} · ${rs0(pl)}</div></div><button type="button" class="btn small" data-log="${esc(f.it.id)}">Log</button></li>`);
+      }
+    }
+    const fixed = `<section class="card fixed">
+        <div class="card-head"><h2>Fixed payments</h2><p class="sub">One tap logs the planned amount, dated ${isCur ? "today" : parseISO(defaultDate()).toLocaleDateString("en-IN", { day: "numeric", month: "short" })}.</p></div>
+        <p class="progress-line">${doneCount} of ${st.fixed.length + 1} done for ${esc(mName)}</p>
+        <ul class="fx">${fxRows.join("")}</ul>
+      </section>`;
+
+    // daily chart
+    const perDay = T.variable / daysIn(S.ym);
+    const daily = `<section class="card daily">
+        <div class="card-head"><h2>Day-to-day spending</h2><p class="sub">Everything except fixed payments and savings. The line is your daily budget of ${rs0(perDay)}.</p></div>
+        <div class="chart" id="dailyChart"></div>
+      </section>`;
+
+    // goals
+    const sums = goalSums();
+    const goalRows = (P.goals || []).map((g) => {
+      const have = (+g.opening || 0) + (sums[g.id] || 0);
+      const target = +g.target || 0;
+      const remaining = Math.max(0, target - have);
+      const pct = target > 0 ? Math.min(100, (have / target) * 100) : 0;
+      const rate = goalRate(g, P);
+      const b = P.buckets.find((x) => x.id === g.bucket);
+      let pill = "", line;
+      if (target > 0 && remaining <= 0) { pill = `<span class="pill good">Reached</span>`; line = "Target reached. Alhamdulillah."; }
+      else if (/^\d{4}-\d{2}$/.test(g.by || "")) {
+        const n = monthsBetween(cur, g.by) + 1;
+        if (n <= 0) { pill = `<span class="pill warn">Date passed</span>`; line = `The target month has passed with ${rs0(remaining)} still to go. Set a new month in Plan.`; }
+        else {
+          const need = remaining / n;
+          pill = rate >= need - 0.5 ? `<span class="pill good">On pace</span>` : `<span class="pill warn">Behind</span>`;
+          line = `Needs ${rs0(need)} a month to reach it by ${esc(monthLong(g.by))}. Your plan puts ${rs0(rate)} a month toward it.`;
+        }
+      } else if (rate > 0) {
+        const n = Math.ceil(remaining / rate);
+        line = `At ${rs0(rate)} a month${b ? ` from ${esc(b.name)}` : ""}, you reach it in ${n} month${n === 1 ? "" : "s"}, around ${esc(monthLong(shiftYm(cur, n)))}.`;
+      } else line = "Pick the bucket that funds this goal in Plan to see when you'll reach it.";
+      return `<div class="gitem">
+        <div class="g-top"><span class="sw" style="background:${bucketColor(b)}"></span><h3>${esc(g.name)}</h3><span class="grow"></span>${pill}</div>
+        <div class="g-num"><strong>${rs0(have)}</strong><span>of ${rs0(target)}</span></div>
+        <div class="meter" role="img" aria-label="${Math.round(pct)}% of ${esc(g.name)}"><span style="width:${pct}%"></span></div>
+        <p class="g-line">${line}</p>
+      </div>`;
+    }).join("");
+    const goal = `<section class="card goal">
+        <div class="card-head"><h2>Saving goals</h2><p class="sub">Entries you log toward a goal fill it up, plus anything saved before you started.</p></div>
+        ${goalRows ? `<div class="glist">${goalRows}</div>` : `<div class="empty" style="padding:16px 0"><strong>No goals yet</strong>Add an emergency fund, Umrah or a house deposit in Plan.<br><button type="button" class="btn small" data-goto="plan">Open Plan</button></div>`}
+      </section>`;
+
+    // zakat
+    const z = P.zakat || {};
+    const tracked = (P.goals || []).reduce((a, g) => a + (+g.opening || 0), 0) + savedAllTime();
+    const wealth = tracked + (+z.other || 0);
+    let zBody;
+    if (!(+z.nisab > 0)) {
+      zBody = `<p>Savings tracked here: <strong>${rs0(wealth)}</strong>.</p><p>Add today's nisab value in Plan to see whether Zakat is due and roughly how much.</p><p><button type="button" class="btn small" data-goto="plan">Set nisab</button></p>`;
+    } else if (wealth >= +z.nisab) {
+      zBody = `<div class="g-top"><span class="pill warn">Above nisab</span></div>
+        <div class="g-num zk-num"><strong>${rs0(wealth * 0.025)}</strong><span>2.5% of ${rs0(wealth)}</span></div>
+        <p>If you have held at least ${rs0(+z.nisab)} for a full lunar year, this is your estimated Zakat.</p>`;
+    } else {
+      zBody = `<div class="g-top"><span class="pill neutral">Below nisab</span></div>
+        <div class="g-num zk-num"><strong>${rs0(wealth)}</strong><span>of ${rs0(+z.nisab)} nisab</span></div>
+        <p>Your tracked savings are below nisab, so no Zakat is due on them yet.</p>`;
+    }
+    const zakat = `<section class="card zakat">
+        <div class="card-head"><h2>Zakat estimate</h2><p class="sub">Goal savings, saving-bucket entries and other wealth you add in Plan</p></div>
+        ${zBody}
+        <p class="fine">An estimate only. Include all cash, gold, silver and investments you own, and confirm the amount with a scholar.</p>
+      </section>`;
+
+    el.innerHTML = backupNotice() + `<div class="ov"><div class="col">${hero}${buckets}${daily}</div><div class="col">${fixed}${goal}${zakat}</div></div>`;
+    drawDaily(st, perDay);
+  }
+
+  // ---------- charts ----------
+  function niceTicks(maxV, n = 4) {
+    const raw = (maxV || 1) / n;
+    const p = Math.pow(10, Math.floor(Math.log10(raw)));
+    const f = raw / p;
+    const step = (f <= 1 ? 1 : f <= 2 ? 2 : f <= 2.5 ? 2.5 : f <= 5 ? 5 : 10) * p;
+    const top = Math.max(step, Math.ceil(maxV / step) * step);
+    const arr = [];
+    for (let v = 0; v <= top + step * 1e-6; v += step) arr.push(v);
+    return { top, arr };
+  }
+  function colPath(x, y, w, h, r = 4) {
+    if (h <= 0) return "";
+    r = Math.min(r, w / 2, h);
+    return `M${x},${y + h}V${y + r}Q${x},${y} ${x + r},${y}H${x + w - r}Q${x + w},${y} ${x + w},${y + r}V${y + h}Z`;
+  }
+  const f1 = (n) => Math.round(n * 10) / 10;
+
+  function drawDaily(st, perDay) {
+    const box = $("#dailyChart");
+    if (!box) return;
+    const W = Math.max(280, box.clientWidth || 600);
+    const H = 190, m = { l: 54, r: 10, t: 22, b: 24 };
+    const iw = W - m.l - m.r, ih = H - m.t - m.b;
+    const days = st.daily.length;
+    const maxV = Math.max(perDay * 1.15, ...st.daily, 1);
+    const { top, arr } = niceTicks(maxV);
+    const y = (v) => m.t + ih - (v / top) * ih;
+    const slot = iw / days;
+    const bw = Math.max(3, Math.min(24, slot * 0.62));
+    let s = "";
+    for (const v of arr) {
+      s += `<line class="grid" x1="${m.l}" x2="${W - m.r}" y1="${f1(y(v))}" y2="${f1(y(v))}"/>`;
+      s += `<text class="tick" x="${m.l - 8}" y="${f1(y(v) + 3.5)}" text-anchor="end">${esc(compact(v))}</text>`;
+    }
+    let maxI = -1;
+    st.daily.forEach((v, i) => { if (v > 0 && (maxI < 0 || v > st.daily[maxI])) maxI = i; });
+    const [yy, mm] = ymParts(S.ym);
+    st.daily.forEach((v, i) => {
+      const x = m.l + slot * i;
+      const label = new Date(yy, mm - 1, i + 1).toLocaleDateString("en-IN", { weekday: "short", day: "numeric", month: "short" });
+      s += `<rect class="hit" x="${f1(x)}" y="${m.t}" width="${f1(slot)}" height="${ih}" data-tip="${esc(label)}: ${esc(rs0(v))}"/>`;
+      if (v > 0) {
+        const h = Math.max(1.5, (v / top) * ih);
+        s += `<path d="${colPath(f1(x + (slot - bw) / 2), f1(m.t + ih - h), f1(bw), f1(h))}" style="fill:var(--accent);pointer-events:none"/>`;
+      }
+    });
+    s += `<line class="base" x1="${m.l}" x2="${W - m.r}" y1="${m.t + ih}" y2="${m.t + ih}"/>`;
+    if (perDay > 0) {
+      const ry = f1(y(perDay));
+      s += `<line class="ref" x1="${m.l}" x2="${W - m.r}" y1="${ry}" y2="${ry}" style="pointer-events:none"/>`;
+      s += `<text class="tick" x="${W - m.r}" y="${ry - 5}" text-anchor="end" style="fill:var(--ink-2)">${esc(compact(perDay))} a day</text>`;
+    }
+    if (maxI >= 0) {
+      const v = st.daily[maxI];
+      const cx = m.l + slot * maxI + slot / 2;
+      const ty = Math.max(12, y(v) - 6);
+      const anchor = cx < m.l + 30 ? "start" : cx > W - m.r - 30 ? "end" : "middle";
+      s += `<text class="lbl" x="${f1(cx)}" y="${f1(ty)}" text-anchor="${anchor}">${esc(compact(v))}</text>`;
+    }
+    for (let d = 1; d <= days; d++) {
+      if (d === 1 || d % 5 === 0) {
+        const cx = m.l + slot * (d - 1) + slot / 2;
+        s += `<text class="tick" x="${f1(cx)}" y="${H - 6}" text-anchor="middle">${d}</text>`;
+      }
+    }
+    const tot = st.daily.reduce((a, b) => a + b, 0);
+    box.innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Day-to-day spending by day for ${esc(monthLong(S.ym))}, total ${esc(rs0(tot))}">${s}</svg>`;
+  }
+
+  function drawStack(box, months) {
+    const P = S.data.plan;
+    const W = Math.max(300, box.clientWidth || 640);
+    const H = 240, m = { l: 56, r: 10, t: 22, b: 26 };
+    const iw = W - m.l - m.r, ih = H - m.t - m.b;
+    const th = +P.takeHome || 0;
+    const data = months.map((ym) => {
+      const st = stats(ym);
+      const segs = P.buckets.map((b) => ({ name: b.name, color: bucketColor(b), v: st.byBucket[b.id] || 0 }));
+      if (st.byBucket.other) segs.push({ name: "Outside plan", color: "var(--s-other)", v: st.byBucket.other });
+      return { ym, segs, total: segs.reduce((a, x) => a + x.v, 0) };
+    });
+    const { top, arr } = niceTicks(Math.max(th * 1.05, ...data.map((d) => d.total), 1));
+    const y = (v) => m.t + ih - (v / top) * ih;
+    const slot = iw / months.length;
+    const bw = Math.min(24, slot * 0.55);
+    let s = "";
+    for (const v of arr) {
+      s += `<line class="grid" x1="${m.l}" x2="${W - m.r}" y1="${f1(y(v))}" y2="${f1(y(v))}"/>`;
+      s += `<text class="tick" x="${m.l - 8}" y="${f1(y(v) + 3.5)}" text-anchor="end">${esc(compact(v))}</text>`;
+    }
+    data.forEach((d, i) => {
+      const x0 = m.l + slot * i;
+      const x = x0 + (slot - bw) / 2;
+      s += `<rect class="hit" x="${f1(x0)}" y="${m.t}" width="${f1(slot)}" height="${ih}" data-tip="${esc(monthLong(d.ym))}: ${esc(rs0(d.total))} out"/>`;
+      const nz = d.segs.filter((g) => g.v > 0);
+      let acc = 0;
+      nz.forEach((g, k) => {
+        const yb = y(acc), yt = y(acc + g.v);
+        acc += g.v;
+        const gap = k > 0 ? 2 : 0;
+        const h = yb - yt - gap;
+        if (h <= 0.5) return;
+        const tipTxt = `${monthShort(d.ym)} · ${g.name}: ${rs0(g.v)}`;
+        if (k === nz.length - 1) s += `<path d="${colPath(f1(x), f1(yt), f1(bw), f1(h))}" style="fill:${g.color}" data-tip="${esc(tipTxt)}"/>`;
+        else s += `<rect x="${f1(x)}" y="${f1(yt)}" width="${f1(bw)}" height="${f1(h)}" style="fill:${g.color}" data-tip="${esc(tipTxt)}"/>`;
+      });
+      s += `<text class="tick" x="${f1(x0 + slot / 2)}" y="${H - 6}" text-anchor="middle">${esc(monthShort(d.ym))}</text>`;
+    });
+    s += `<line class="base" x1="${m.l}" x2="${W - m.r}" y1="${m.t + ih}" y2="${m.t + ih}"/>`;
+    if (th > 0) {
+      const ry = f1(y(th));
+      s += `<line class="ref" x1="${m.l}" x2="${W - m.r}" y1="${ry}" y2="${ry}" style="pointer-events:none"/>`;
+      s += `<text class="tick" x="${W - m.r}" y="${ry - 5}" text-anchor="end" style="fill:var(--ink-2)">Take-home ${esc(compact(th))}</text>`;
+    }
+    box.innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Money out by bucket, ${esc(monthLong(months[0]))} to ${esc(monthLong(months[months.length - 1]))}">${s}</svg>`;
+  }
+
+  // ---------- trends ----------
+  function renderTrends() {
+    const el = $("#p-trends");
+    const P = S.data.plan;
+    const months = [];
+    for (let k = 5; k >= 0; k--) months.push(shiftYm(S.ym, -k));
+    const anyOther = months.some((ym) => stats(ym).byBucket.other);
+    const legend = P.buckets.map((b) => `<span><i style="background:${bucketColor(b)}"></i>${esc(b.name)}</span>`).join("")
+      + (anyOther ? `<span><i style="background:var(--s-other)"></i>Outside plan</span>` : "")
+      + `<span><i class="ref-key"></i>Take-home</span>`;
+
+    const st = stats(S.ym);
+    const top = Object.entries(st.byItem).map(([id, v]) => {
+      const ref = S.idx.get(id);
+      const e = st.es.find((x) => x.item === id && x.type !== "income");
+      return { name: ref ? ref.it.name : (e ? labelOf(e) : "Other"), color: ref ? bucketColor(ref.b) : "var(--s-other)", v };
+    }).sort((a, b) => b.v - a.v).slice(0, 8);
+    const maxTop = top[0]?.v || 1;
+    const topHtml = top.length
+      ? `<ul class="hbars">${top.map((t) => `<li><span class="hb-name">${esc(t.name)}</span><span class="hb-track"><span style="width:${(t.v / maxTop) * 100}%;background:${t.color}"></span></span><span class="hb-val">${rs0(t.v)}</span></li>`).join("")}</ul>`
+      : `<p class="sub">Nothing logged in ${esc(monthOnly(S.ym))} yet.</p>`;
+
+    const rows = months.slice().reverse().map((ym) => {
+      const s2 = stats(ym);
+      const rate = s2.income > 0 ? Math.round((s2.saved / s2.income) * 100) + "%" : "—";
+      return `<tr><td>${esc(monthLong(ym))}</td><td class="num">${rs0(s2.income)}</td><td class="num">${rs0(s2.spent)}</td><td class="num">${rs0(s2.saved)}</td><td class="num">${rate}</td>${P.buckets.map((b) => `<td class="num">${rs0(s2.byBucket[b.id] || 0)}</td>`).join("")}<td class="num">${rs0(s2.byBucket.other || 0)}</td></tr>`;
+    }).join("");
+
+    el.innerHTML = `<div class="trends">
+      <section class="card">
+        <div class="card-head"><h2>Money out by bucket</h2><p class="sub">Last 6 months, spending and savings together</p></div>
+        <div class="legend">${legend}</div>
+        <div class="chart" id="stackChart"></div>
+      </section>
+      <section class="card">
+        <div class="card-head"><h2>Biggest lines in ${esc(monthOnly(S.ym))}</h2><p class="sub">Coloured by bucket</p></div>
+        ${topHtml}
+      </section>
+      <section class="card wide">
+        <div class="card-head"><h2>Month by month</h2><p class="sub">Savings rate is saved &amp; invested divided by income logged.</p></div>
+        <div class="tablewrap"><table class="data">
+          <thead><tr><th>Month</th><th class="num">Income</th><th class="num">Spent</th><th class="num">Saved</th><th class="num">Savings rate</th>${P.buckets.map((b) => `<th class="num">${esc(b.name)}</th>`).join("")}<th class="num">Outside plan</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table></div>
+      </section>
+    </div>`;
+    drawStack($("#stackChart"), months);
+  }
+
+  // ---------- passbook ----------
+  function renderPassbook() {
+    const B = S.data.plan.buckets;
+    if (S.filter !== "all" && S.filter !== "income" && S.filter !== "other" && !B.some((b) => b.id === S.filter)) S.filter = "all";
+    const opts = [["all", "All", null], ["income", "Income", "var(--good)"], ...B.map((b) => [b.id, b.name, bucketColor(b)]), ["other", "Outside plan", "var(--s-other)"]];
+    $("#pbChips").innerHTML = opts.map(([v, l, c]) => `<button type="button" class="fchip" data-filter="${esc(v)}" aria-pressed="${S.filter === v}">${c ? `<i style="background:${c}"></i>` : ""}${esc(l)}</button>`).join("");
+    $("#pbExport").hidden = !canDownload();
+    renderPbList();
+  }
+  function renderPbList() {
+    if (!setupDone()) return;
+    const all = entriesOf(S.ym);
+    let bal = 0;
+    const withBal = all.map((e) => { bal += e.type === "income" ? e.amount : -e.amount; return { ...e, bal }; });
+    const q = S.q.trim().toLowerCase();
+    const rows = withBal.filter((e) => {
+      const b = e.type === "income" ? null : bucketOf(e);
+      if (S.filter === "income" && e.type !== "income") return false;
+      if (S.filter === "other" && (e.type === "income" || b)) return false;
+      if (!["all", "income", "other"].includes(S.filter) && (e.type === "income" || !b || b.id !== S.filter)) return false;
+      if (q) {
+        const g = e.goal ? goalById(e.goal) : null;
+        const hay = `${labelOf(e)} ${e.note || ""} ${e.amount} ${b ? b.name : ""} ${g ? g.name : ""}`.toLowerCase();
+        if (!hay.includes(q)) return false;
+      }
+      return true;
+    }).reverse();
+    const wd = rows.filter((e) => e.type !== "income").reduce((a, e) => a + e.amount, 0);
+    const dp = rows.filter((e) => e.type === "income").reduce((a, e) => a + e.amount, 0);
+    $("#pbSum").innerHTML = rows.length
+      ? `<span><strong>${rows.length}</strong> entr${rows.length === 1 ? "y" : "ies"}</span><span>Out <strong>${rs0(wd)}</strong></span><span>In <strong>${rs0(dp)}</strong></span>`
+      : "";
+    if (!rows.length) {
+      $("#pbList").innerHTML = all.length
+        ? `<div class="empty"><strong>No matches</strong>Try another filter or search.</div>`
+        : `<div class="empty"><strong>Nothing logged for ${esc(monthOnly(S.ym))}</strong>Add today's spending and it shows up here, newest first.<br><button type="button" class="btn primary" data-open-add>Add entry</button></div>`;
+      return;
+    }
+    let lastDate = "";
+    const body = rows.map((e) => {
+      const d = parseISO(e.date);
+      const showDate = e.date !== lastDate;
+      lastDate = e.date;
+      const inc = e.type === "income";
+      const b = inc ? null : bucketOf(e);
+      const color = inc ? "var(--good)" : bucketColor(b);
+      const g = e.goal ? goalById(e.goal) : null;
+      const sub = [inc ? "Income" : (b ? b.name : "Outside plan"), g && (!b || g.name !== b.name) ? "for " + g.name : "", e.note].filter(Boolean).map(esc).join(" · ");
+      return `<tr tabindex="0" data-edit="${esc(e.id)}" aria-label="Edit ${esc(labelOf(e))}, ${esc(rs(e.amount))}">
+        <td class="pb-date">${showDate ? `${d.toLocaleDateString("en-IN", { day: "numeric", month: "short" })}<small>${d.toLocaleDateString("en-IN", { weekday: "short" })}</small>` : ""}</td>
+        <td><div class="pb-part"><span class="sw" style="background:${color}"></span><div><b>${esc(labelOf(e))}</b><small>${sub}</small></div></div></td>
+        <td class="num col-wd">${inc ? "" : rs(e.amount)}</td>
+        <td class="num col-dp credit">${inc ? rs(e.amount) : ""}</td>
+        <td class="num col-amt ${inc ? "credit" : ""}">${inc ? "+" : "−"}${rs(e.amount).replace("−", "")}</td>
+        <td class="num" style="color:${e.bal < 0 ? "var(--bad)" : "var(--ink-2)"}">${rs0(e.bal)}</td>
+      </tr>`;
+    }).join("");
+    $("#pbList").innerHTML = `<div class="tablewrap"><table class="pb">
+      <thead><tr><th>Date</th><th>Particulars</th><th class="num col-wd">Out</th><th class="num col-dp">In</th><th class="num col-amt">Amount</th><th class="num" title="Income minus outgoings so far this month">Month net</th></tr></thead>
+      <tbody>${body}</tbody></table></div>`;
+  }
+  $("#pbChips").addEventListener("click", (e) => {
+    const b = e.target.closest("[data-filter]");
+    if (!b) return;
+    S.filter = b.dataset.filter;
+    for (const x of document.querySelectorAll("#pbChips .fchip")) x.setAttribute("aria-pressed", x.dataset.filter === S.filter ? "true" : "false");
+    renderPbList();
+  });
+  $("#pbSearch").addEventListener("input", (e) => { S.q = e.target.value; renderPbList(); });
+  $("#pbList").addEventListener("click", (e) => {
+    if (e.target.closest("[data-open-add]")) { openAdd(); return; }
+    const r = e.target.closest("tr[data-edit]");
+    if (r) openEditById(r.dataset.edit);
+  });
+  $("#pbList").addEventListener("keydown", (e) => {
+    if (e.key !== "Enter" && e.key !== " ") return;
+    const r = e.target.closest("tr[data-edit]");
+    if (r) { e.preventDefault(); openEditById(r.dataset.edit); }
+  });
+  function entriesCsv() {
+    const rows = [["Date", "Type", "Bucket", "Category", "Goal", "Note", "Amount", "Currency"]];
+    for (const ym of allMonths()) for (const e of entriesOf(ym)) {
+      const b = e.type === "income" ? null : bucketOf(e);
+      const g = e.goal ? goalById(e.goal) : null;
+      rows.push([e.date, e.type === "income" ? "Income" : "Expense", e.type === "income" ? "Income" : (b ? b.name : "Outside plan"), labelOf(e), g ? g.name : "", e.note || "", e.amount, CUR.code]);
+    }
+    return rows.map((r) => r.map((c) => { const s = String(c); return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s; }).join(",")).join("\n");
+  }
+  const inClaude = () => !!(window.claude && typeof window.claude.use === "function");
+  const canDownload = () => !!S.dl || !inClaude();
+  async function saveFile(filename, data, okMsg) {
+    if (S.dl) {
+      try { await S.dl.save({ filename, data }); toast(okMsg); return true; }
+      catch (err) { if (err && err.code === "declined") return false; toast("Couldn't save the file here. Try Copy backup code instead."); return false; }
+    }
+    if (!canDownload()) return false;
+    try {
+      const type = filename.endsWith(".csv") ? "text/csv" : "application/json";
+      const url = URL.createObjectURL(new Blob([data], { type: type + ";charset=utf-8" }));
+      const a = document.createElement("a");
+      a.href = url; a.download = filename;
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 2000);
+      toast(okMsg); return true;
+    } catch (err) { toast("Couldn't save the file here. Try Copy backup code instead."); return false; }
+  }
+  $("#pbExport").addEventListener("click", () => saveFile(`hisaab-entries-${todayISO()}.csv`, entriesCsv(), "CSV saved"));
+
+  // ---------- plan editor ----------
+  function renderPlan() {
+    if (S.dirty) return;
+    S.draft = clone(S.data.plan);
+    setCurrency(S.draft.currency);
+    drawPlan();
+  }
+  function drawPlan() {
+    const D = S.draft;
+    D.goals = D.goals || [];
+    D.zakat = D.zakat || { nisab: 0, other: 0 };
+    const curOpts = CURRENCIES.map((c) => `<option value="${c.code}"${c.code === (D.currency || "INR") ? " selected" : ""}>${c.code} · ${esc(c.name)}</option>`).join("");
+    const buckets = D.buckets.map((b) => {
+      const rows = (b.items || []).map((it) => `
+        <div class="ed-row">
+          <input id="pl-i-${esc(it.id)}-name" data-i="${esc(it.id)}" data-f="name" value="${esc(it.name)}" aria-label="Item name">
+          <div class="ed-amt"><input id="pl-i-${esc(it.id)}-amt" data-i="${esc(it.id)}" data-f="planned" inputmode="decimal" value="${esc(it.formula || it.planned)}" aria-label="${esc(it.name)} monthly amount"><span class="ed-eq" id="pl-i-${esc(it.id)}-eq"></span></div>
+          <div class="flags"><button type="button" data-i="${esc(it.id)}" data-flag="fixed" aria-pressed="${it.fixed ? "true" : "false"}">Fixed</button></div>
+          <button type="button" class="icon-btn" data-rm="${esc(it.id)}" aria-label="Remove ${esc(it.name)}">×</button>
+        </div>`).join("");
+      return `<section class="card ed">
+        <div class="ed-head">
+          <span class="sw" style="background:${bucketColor(b)}"></span>
+          <input class="ed-bname" id="pl-b-${esc(b.id)}-name" data-b="${esc(b.id)}" data-f="name" value="${esc(b.name)}" aria-label="Bucket name">
+          <label class="ed-pct"><input id="pl-b-${esc(b.id)}-pct" data-b="${esc(b.id)}" data-f="pct" inputmode="decimal" value="${esc(b.pct)}" aria-label="${esc(b.name)} share of take-home in percent"><span>%</span></label>
+          <span class="ed-alloc" id="pl-b-${esc(b.id)}-alloc"></span>
+          <button type="button" class="icon-btn" data-rmb="${esc(b.id)}" aria-label="Remove ${esc(b.name)} bucket">×</button>
+        </div>
+        <div class="ed-kind"><span>Counts as</span><div class="kind" role="group" aria-label="${esc(b.name)} counts as"><button type="button" data-b="${esc(b.id)}" data-kind="spend" aria-pressed="${b.kind !== "save"}">Spending</button><button type="button" data-b="${esc(b.id)}" data-kind="save" aria-pressed="${b.kind === "save"}">Saving</button></div></div>
+        <div class="ed-row ed-th"><span>Item</span><span>Monthly amount</span><span>Flag</span><span></span></div>
+        ${rows}
+        <div class="ed-foot"><button type="button" class="btn ghost small" data-add="${esc(b.id)}">+ Add item</button><span class="grow"></span><span id="pl-b-${esc(b.id)}-check"></span></div>
+      </section>`;
+    }).join("");
+    const bucketOpts = (sel) => `<option value="">No bucket</option>` + D.buckets.map((b) => `<option value="${esc(b.id)}"${b.id === sel ? " selected" : ""}>${esc(b.name)}</option>`).join("");
+    const goals = D.goals.map((g) => `<div class="g-ed-row">
+        <label class="mini g-name"><span>Goal</span><input id="pl-g-${esc(g.id)}-name" data-g="${esc(g.id)}" data-f="name" value="${esc(g.name)}" maxlength="60"></label>
+        <label class="mini"><span>Target</span><input id="pl-g-${esc(g.id)}-target" data-g="${esc(g.id)}" data-f="target" inputmode="decimal" value="${esc(g.target)}"></label>
+        <label class="mini"><span>Saved before</span><input id="pl-g-${esc(g.id)}-opening" data-g="${esc(g.id)}" data-f="opening" inputmode="decimal" value="${esc(g.opening || 0)}"></label>
+        <label class="mini"><span>Target month</span><input id="pl-g-${esc(g.id)}-by" data-g="${esc(g.id)}" data-f="by" type="month" placeholder="YYYY-MM" value="${esc(g.by || "")}"></label>
+        <label class="mini"><span>Funded by</span><select id="pl-g-${esc(g.id)}-bucket" data-g="${esc(g.id)}" data-f="bucket">${bucketOpts(g.bucket)}</select></label>
+        <button type="button" class="icon-btn" data-rmg="${esc(g.id)}" aria-label="Remove ${esc(g.name)} goal">×</button>
+      </div>`).join("");
+    $("#p-plan").innerHTML = `<div class="plan">
+      <div class="plan-top">
+        <section class="card">
+          <div class="card-head"><h2>Income</h2><p class="sub">Every bucket is a share of take-home pay.</p></div>
+          <div class="fields">
+            <label class="field"><span>Currency</span><select id="pl-cur" data-cur="1">${curOpts}</select></label>
+            <label class="field"><span>Take-home a month, after tax</span><input id="pl-take" data-pf="takeHome" inputmode="decimal" value="${esc(D.takeHome ?? "")}"></label>
+            <div class="add-row"><button type="button" class="btn small" data-fit="1">Fit items to buckets</button><span class="field-help">Rescales each bucket's items to its share.</span></div>
+          </div>
+        </section>
+        <section class="card">
+          <div class="card-head"><h2>Plan check</h2></div>
+          <ul class="checks" id="pl-checks"></ul>
+          <ul class="flag-help" style="margin-top:14px">
+            <li><b>Fixed</b> paid once a month. Shows in the fixed payments checklist.</li>
+            <li><b>Saving</b> buckets count as saved, not spent, and fund your goals.</li>
+          </ul>
+        </section>
+        <section class="card">
+          <div class="card-head"><h2>Zakat</h2><p class="sub">Nisab is the value of 7.5 tola (87.48 g) of gold or 52.5 tola (612.36 g) of silver. Check today's rate and enter the value.</p></div>
+          <div class="fields">
+            <label class="field"><span>Nisab value today</span><input id="pl-z-nisab" data-pf="zakat.nisab" inputmode="decimal" placeholder="0" value="${+D.zakat.nisab ? esc(D.zakat.nisab) : ""}"></label>
+            <label class="field"><span>Other wealth not tracked here</span><input id="pl-z-other" data-pf="zakat.other" inputmode="decimal" placeholder="Cash, gold, bank balance" value="${+D.zakat.other ? esc(D.zakat.other) : ""}"></label>
+          </div>
+        </section>
+      </div>
+      <div class="ed-grid">${buckets}</div>
+      <div class="add-row"><button type="button" class="btn small" data-addb="1">+ Add bucket</button><span class="field-help">Up to 10 buckets. Set each one's share so they add up to 100%.</span></div>
+      <section class="card ed">
+        <div class="card-head"><h2>Saving goals</h2><p class="sub">Target month is optional. Leave it empty to see when your plan gets you there.</p></div>
+        <div>${goals || `<p class="sub">No goals yet.</p>`}</div>
+        <div class="ed-foot"><button type="button" class="btn ghost small" data-addg="1">+ Add goal</button></div>
+      </section>
+      <p class="note-banknotes">Bucket colours borrow from Indian banknotes: ₹10 brown, ₹2000 magenta, ₹20 green-yellow, ₹50 blue, ₹100 lavender, ₹200 yellow.</p>
+      <div class="savebar" id="plSave" ${S.dirty ? "" : "hidden"}><span>Unsaved changes</span><button type="button" class="btn ghost small" id="plDiscard">Discard</button><button type="button" class="btn primary small" id="plSaveBtn">Save plan</button></div>
+    </div>`;
+    updatePlanCalcs();
+  }
+  function findDraftItem(id) {
+    for (const b of S.draft.buckets) { const it = (b.items || []).find((x) => x.id === id); if (it) return { it, b }; }
+    return null;
+  }
+  function setText(id, html) { const n = document.getElementById(id); if (n) n.innerHTML = html; }
+  function updatePlanCalcs() {
+    const D = S.draft;
+    const th = +D.takeHome || 0;
+    const T = planTotals(D);
+    for (const b of D.buckets) {
+      const alloc = ((+b.pct || 0) / 100) * th;
+      const items = (b.items || []).reduce((a, it) => a + (+it.planned || 0), 0);
+      setText(`pl-b-${b.id}-alloc`, rs0(alloc));
+      const d = alloc - items;
+      setText(`pl-b-${b.id}-check`, Math.abs(d) < 1
+        ? `<span class="pill good">Items match</span>`
+        : d < 0 ? `<span class="pill bad">Items ${rs0(-d)} over</span>` : `<span class="pill neutral">${rs0(d)} unassigned</span>`);
+      for (const it of b.items || []) setText(`pl-i-${it.id}-eq`, it.formula ? `= ${rs(+it.planned || 0)}` : "");
+    }
+    const pctOk = Math.abs(T.pct - 100) < 0.01;
+    const over = T.items - th;
+    const checks = [
+      pctOk ? `<li><span class="pill good">OK</span><span>Bucket shares add up to 100%.</span></li>`
+            : `<li><span class="pill warn">Check</span><span>Bucket shares add up to ${nf.format(T.pct)}%, not 100%.</span></li>`,
+      Math.abs(over) < 1 ? `<li><span class="pill good">OK</span><span>Planned items use exactly your take-home.</span></li>`
+        : over > 0 ? `<li><span class="pill bad">Over</span><span>Planned items total ${rs0(T.items)}, ${rs0(over)} more than take-home.</span></li>`
+        : `<li><span class="pill neutral">Spare</span><span>Planned items total ${rs0(T.items)}, leaving ${rs0(-over)} unplanned.</span></li>`,
+      `<li><span class="pill neutral">Saving</span><span>${rs0(T.save)} a month goes to saving buckets, ${th > 0 ? Math.round((T.save / th) * 100) : 0}% of take-home.</span></li>`,
+      `<li><span class="pill neutral">Daily</span><span>Day-to-day items come to ${rs0(T.variable)}, about ${rs0(T.variable / 30)} a day.</span></li>`,
+    ];
+    setText("pl-checks", checks.join(""));
+  }
+  function markDirty() {
+    S.dirty = true;
+    const bar = $("#plSave");
+    if (bar) bar.hidden = false;
+  }
+  function setPath(obj, path, v) {
+    const ks = path.split(".");
+    let o = obj;
+    for (let i = 0; i < ks.length - 1; i++) { o[ks[i]] = o[ks[i]] || {}; o = o[ks[i]]; }
+    o[ks[ks.length - 1]] = v;
+  }
+  function freeSlot(D) {
+    const used = new Set(D.buckets.map((b) => b.slot));
+    for (let k = 0; k < 6; k++) if (!used.has(k)) return k;
+    return -1;
+  }
+  $("#p-plan").addEventListener("input", (e) => {
+    const t = e.target;
+    if (!S.draft || !["INPUT", "SELECT"].includes(t.tagName)) return;
+    const numeric = (v, allowEmpty) => {
+      if (allowEmpty && !String(v).trim()) { t.setAttribute("aria-invalid", "false"); return 0; }
+      const n = evalExpr(v); const bad = Number.isNaN(n) || n < 0;
+      t.setAttribute("aria-invalid", bad ? "true" : "false"); return bad ? null : n;
+    };
+    if (t.dataset.cur) { S.draft.currency = t.value; setCurrency(t.value); markDirty(); drawPlan(); return; }
+    if (t.dataset.pf) {
+      const n = numeric(t.value, t.dataset.pf !== "takeHome");
+      if (n !== null) setPath(S.draft, t.dataset.pf, n);
+    } else if (t.dataset.g) {
+      const g = S.draft.goals.find((x) => x.id === t.dataset.g);
+      if (!g) return;
+      const f = t.dataset.f;
+      if (f === "name") g.name = t.value;
+      else if (f === "bucket") g.bucket = t.value;
+      else if (f === "by") { const ok = !t.value || /^\d{4}-\d{2}$/.test(t.value); t.setAttribute("aria-invalid", ok ? "false" : "true"); if (ok) g.by = t.value; }
+      else { const n = numeric(t.value, f === "opening"); if (n !== null) g[f] = n; }
+    } else if (t.dataset.b) {
+      const b = S.draft.buckets.find((x) => x.id === t.dataset.b);
+      if (!b) return;
+      if (t.dataset.f === "name") b.name = t.value;
+      else { const n = numeric(t.value); if (n !== null) b.pct = n; }
+    } else if (t.dataset.i) {
+      const ref = findDraftItem(t.dataset.i);
+      if (!ref) return;
+      if (t.dataset.f === "name") ref.it.name = t.value;
+      else {
+        const n = numeric(t.value);
+        if (n !== null) {
+          ref.it.planned = n;
+          if (hasOp(t.value)) ref.it.formula = t.value.replace(/[\s,]/g, ""); else delete ref.it.formula;
+        }
+      }
+    } else return;
+    markDirty();
+    updatePlanCalcs();
+  });
+  $("#p-plan").addEventListener("click", (e) => {
+    const t = e.target.closest("button");
+    if (!t || !S.draft) return;
+    const D = S.draft;
+    if (t.dataset.flag) {
+      const ref = findDraftItem(t.dataset.i);
+      if (!ref) return;
+      ref.it.fixed = !ref.it.fixed;
+      if (!ref.it.fixed) delete ref.it.fixed;
+      t.setAttribute("aria-pressed", ref.it.fixed ? "true" : "false");
+      markDirty(); updatePlanCalcs();
+    } else if (t.dataset.kind) {
+      const b = D.buckets.find((x) => x.id === t.dataset.b);
+      if (!b) return;
+      b.kind = t.dataset.kind;
+      for (const x of t.parentElement.children) x.setAttribute("aria-pressed", x.dataset.kind === b.kind ? "true" : "false");
+      markDirty(); updatePlanCalcs();
+    } else if (t.dataset.rm) {
+      for (const b of D.buckets) b.items = (b.items || []).filter((x) => x.id !== t.dataset.rm);
+      markDirty(); drawPlan();
+    } else if (t.dataset.add) {
+      const b = D.buckets.find((x) => x.id === t.dataset.add);
+      if (!b) return;
+      const id = newId("i");
+      b.items = b.items || [];
+      b.items.push({ id, name: "New item", planned: 0 });
+      markDirty(); drawPlan();
+      const inp = document.getElementById(`pl-i-${id}-name`);
+      if (inp) { inp.focus(); inp.select(); }
+    } else if (t.dataset.rmb) {
+      D.buckets = D.buckets.filter((x) => x.id !== t.dataset.rmb);
+      for (const g of D.goals) if (g.bucket === t.dataset.rmb) g.bucket = "";
+      markDirty(); drawPlan();
+      toast("Bucket removed. Its past entries now show as Outside plan.");
+    } else if (t.dataset.addb) {
+      if (D.buckets.length >= 10) { toast("You can have up to 10 buckets."); return; }
+      const id = newId("b");
+      D.buckets.push({ id, name: "New bucket", pct: 0, kind: "spend", slot: freeSlot(D), items: [] });
+      markDirty(); drawPlan();
+      const inp = document.getElementById(`pl-b-${id}-name`);
+      if (inp) { inp.focus(); inp.select(); }
+    } else if (t.dataset.rmg) {
+      D.goals = D.goals.filter((g) => g.id !== t.dataset.rmg);
+      markDirty(); drawPlan();
+    } else if (t.dataset.addg) {
+      const id = newId("g");
+      const saveB = D.buckets.find((b) => b.kind === "save");
+      D.goals.push({ id, name: "New goal", target: 0, opening: 0, by: "", bucket: saveB ? saveB.id : "" });
+      markDirty(); drawPlan();
+      const inp = document.getElementById(`pl-g-${id}-name`);
+      if (inp) { inp.focus(); inp.select(); }
+    } else if (t.dataset.fit) {
+      const th = +D.takeHome || 0;
+      for (const b of D.buckets) {
+        const items = b.items || [];
+        if (!items.length) continue;
+        const sum = items.reduce((a, it) => a + (+it.planned || 0), 0);
+        const w = sum > 0 ? items.map((it) => (+it.planned || 0) / sum) : items.map(() => 1 / items.length);
+        fillItems(items, ((+b.pct || 0) / 100) * th, w);
+      }
+      markDirty(); drawPlan();
+      toast("Items rescaled. Save the plan to keep them.");
+    } else if (t.id === "plDiscard") {
+      S.dirty = false; renderPlan(); renderChrome();
+    } else if (t.id === "plSaveBtn") {
+      if (document.querySelector('#p-plan input[aria-invalid="true"]')) { toast("Fix the highlighted fields first."); return; }
+      if (!(+D.takeHome > 0)) { toast("Enter your monthly take-home first."); return; }
+      for (const b of D.buckets) { b.name = (b.name || "").trim() || "Bucket"; for (const it of b.items || []) it.name = (it.name || "").trim() || "Item"; }
+      for (const g of D.goals) { g.name = (g.name || "").trim() || "Savings goal"; g.target = +g.target || 0; g.opening = +g.opening || 0; }
+      S.data.plan = clone(D);
+      setCurrency(S.data.plan.currency);
+      reindex();
+      persist();
+      S.dirty = false;
+      toast("Plan saved");
+      renderPlan();
+      renderChrome();
+    }
+  });
+
+  // ---------- settings ----------
+  let eraseTimer;
+  function renderProfile() {
+    const p = S.data.profile;
+    const el = $("#p-profile");
+    const lastBk = S.data.lastBackupAt ? new Date(S.data.lastBackupAt).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" }) : "never";
+    const community = [
+      LINKS.github ? `<div class="sec"><h3>On GitHub</h3><p>Hisaab is open source. Star it so more people find it, suggest an idea, or report a problem.</p><div class="btnrow"><a class="btn small" href="${esc(LINKS.github)}" target="_blank" rel="noopener">Star on GitHub</a><a class="btn small ghost" href="${esc(LINKS.github.replace(/\/$/, "") + "/issues")}" target="_blank" rel="noopener">Suggest an idea</a></div></div>` : "",
+      LINKS.pinterest ? `<div class="sec"><h3>On Pinterest</h3><p>Budget tips, the Hisaab split and saving ideas.</p><div class="btnrow"><a class="btn small" href="${esc(LINKS.pinterest)}" target="_blank" rel="noopener">Follow on Pinterest</a></div></div>` : "",
+      `<div class="sec"><h3>Tell a friend</h3><p>Hisaab grows by word of mouth. Share it with someone who wants a plan for their salary.</p><div class="btnrow"><button type="button" class="btn small primary" data-share>Share Hisaab</button><button type="button" class="btn small ghost" data-copy-link="${esc(appUrl())}">Copy link</button></div></div>`,
+    ].join("");
+    el.innerHTML = `<div class="prof">
+      <section class="card">
+        <div class="card-head"><h2>Your name</h2><p class="sub">Only used to greet you. It stays on this device.</p></div>
+        <form id="pfForm" class="fields" novalidate>
+          <label class="field"><span>First name <span class="opt">(optional)</span></span><input id="pfName" autocomplete="given-name" maxlength="80" value="${esc(p.name || "")}"></label>
+          <div class="btnrow"><button type="submit" class="btn primary small">Save</button></div>
+        </form>
+      </section>
+      <section class="card">
+        <div class="card-head"><h2>Hisaab community</h2><p class="sub">Free, open source and built in public</p></div>
+        ${community}
+        <p class="msg-preview" id="pfCopyOut" hidden></p>
+      </section>
+      <section class="card wide">
+        <div class="card-head"><h2>Your data</h2><p class="sub">Last backup: ${esc(lastBk)}</p></div>
+        <div class="sec" id="bkSec">
+          <h3>Saved on this device only</h3>
+          <p>Hisaab has no server and no account. Your budget lives in this browser on this device, and nobody else can see it. Clearing browser data or using a private window loses it, so save a backup every month and keep it somewhere safe.</p>
+          <div class="btnrow">
+            <button type="button" class="btn small primary" id="bkFile" data-needs-dl ${canDownload() ? "" : "hidden"}>Save backup file</button>
+            <button type="button" class="btn small" id="bkCopy">Copy backup code</button>
+            <button type="button" class="btn small ghost" id="bkCsv" data-needs-dl ${canDownload() ? "" : "hidden"}>Export entries CSV</button>
+          </div>
+          <textarea class="code" id="bkOut" readonly hidden aria-label="Backup code"></textarea>
+        </div>
+        <div class="sec">
+          <h3>Restore or move to a new phone</h3>
+          <p>Open Hisaab on the new device, then restore your backup file or paste the backup code here. Backups from the WhatsApp version of Hisaab work too.</p>
+          <div class="btnrow"><input type="file" id="rsFile" class="file-in" accept=".json,.txt,application/json,text/plain" aria-label="Choose a backup file"></div>
+          <textarea class="code" id="rsCode" placeholder="Or paste a backup code" aria-label="Paste a backup code" style="margin-top:10px"></textarea>
+          <div class="btnrow" style="margin-top:8px"><button type="button" class="btn small" id="rsGo">Restore pasted code</button></div>
+          <p class="err" id="rsErr" role="alert" hidden style="margin-top:8px"></p>
+          <div class="confirm" id="rsConfirm" hidden><span id="rsMsg"></span><button type="button" class="btn small danger armed" id="rsYes">Replace my data</button><button type="button" class="btn small ghost" id="rsNo">Cancel</button></div>
+        </div>
+        <div class="sec">
+          <h3>Start over</h3>
+          <p>Erases your plan, entries and name from this device. Save a backup first if you might want them back.</p>
+          <button type="button" class="btn small danger" id="eraseAll">Erase everything</button>
+        </div>
+      </section>
+    </div>`;
+  }
+  function backupPayload() { return JSON.stringify({ app: "hisaab", v: 1, exportedAt: new Date().toISOString(), data: S.data }); }
+  function parseBackup(text) {
+    try {
+      const o = JSON.parse(String(text || "").trim());
+      const d = o && (o.app === "hisaab" || o.app === "hisaab-circle") ? o.data : o;
+      if (d && d.profile && d.plan && Array.isArray(d.plan.buckets)) return normalize(d);
+    } catch (e) {}
+    return null;
+  }
+  function offerRestore(d, when) {
+    const n = Object.values(d.entries || {}).reduce((a, m) => a + Object.keys(m || {}).length, 0);
+    S.pendingRestore = d;
+    $("#rsErr").hidden = true;
+    $("#rsMsg").textContent = `Replace everything on this device with the backup${when ? " from " + when : ""}? It has ${n} entr${n === 1 ? "y" : "ies"} ${d.profile.name ? " for " + d.profile.name : ""}.`;
+    $("#rsConfirm").hidden = false;
+  }
+  $("#p-profile").addEventListener("submit", (e) => {
+    if (e.target.id !== "pfForm") return;
+    e.preventDefault();
+    S.data.profile.name = $("#pfName").value.trim();
+    persist();
+    renderChrome(); renderProfile();
+    toast("Saved");
+  });
+  $("#p-profile").addEventListener("change", (e) => {
+    if (e.target.id !== "rsFile") return;
+    const f = e.target.files && e.target.files[0];
+    if (!f) return;
+    const r = new FileReader();
+    r.onload = () => {
+      const d = parseBackup(r.result);
+      if (!d) { const er = $("#rsErr"); er.textContent = "That file isn't a Hisaab backup. Choose the .json file you saved from Hisaab."; er.hidden = false; return; }
+      offerRestore(d, f.lastModified ? new Date(f.lastModified).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" }) : "");
+    };
+    r.readAsText(f);
+  });
+  $("#p-profile").addEventListener("click", async (e) => {
+    const t = e.target.closest("button");
+    if (!t) return;
+    if (t.id === "bkFile") {
+      if (await saveFile(`hisaab-backup-${todayISO()}.json`, backupPayload(), "Backup saved")) { S.data.lastBackupAt = Date.now(); persist(); renderProfile(); }
+    } else if (t.id === "bkCsv") {
+      saveFile(`hisaab-entries-${todayISO()}.csv`, entriesCsv(), "CSV saved");
+    } else if (t.id === "bkCopy") {
+      const code = backupPayload();
+      const ok = await copyText(code);
+      if (ok) { S.data.lastBackupAt = Date.now(); persist(); toast("Backup code copied. Paste it into a note or a chat with yourself."); }
+      else {
+        const out = $("#bkOut");
+        out.value = code; out.hidden = false; out.focus(); out.select();
+        toast("Copy didn't work here. The code is selected below, copy it yourself.");
+      }
+    } else if (t.id === "rsGo") {
+      const d = parseBackup($("#rsCode").value);
+      if (!d) { const er = $("#rsErr"); er.textContent = "That isn't a complete backup code. Paste the whole code you copied from Hisaab."; er.hidden = false; return; }
+      offerRestore(d, "");
+    } else if (t.id === "rsNo") {
+      S.pendingRestore = null; $("#rsConfirm").hidden = true;
+    } else if (t.id === "rsYes") {
+      if (!S.pendingRestore) return;
+      S.data = S.pendingRestore; S.pendingRestore = null;
+      S.data.setupDone = true;
+      delete S.data.demo;
+      setCurrency(S.data.plan.currency);
+      reindex(); persist();
+      S.dirty = false;
+      render();
+      toast("Backup restored");
+    } else if (t.id === "eraseAll") {
+      if (!t.classList.contains("armed")) {
+        t.classList.add("armed"); t.textContent = "Tap again to erase everything";
+        clearTimeout(eraseTimer);
+        eraseTimer = setTimeout(() => { t.classList.remove("armed"); t.textContent = "Erase everything"; }, 4000);
+        return;
+      }
+      clearTimeout(eraseTimer);
+      try { localStorage.removeItem(KEY); } catch (err) {}
+      S.data = null; S.dirty = false; S.draft = null;
+      resetOb(); reindex();
+      S.tab = "overview";
+      render();
+      window.scrollTo(0, 0);
+    }
+  });
+
+  // Shared buttons: tour, sample data, share, copy link, jump to a tab
+  document.addEventListener("click", async (e) => {
+    const a = e.target.closest("[data-tour], [data-demo-exit], [data-share], [data-copy-link], [data-goto]");
+    if (!a) return;
+    if (a.hasAttribute("data-tour")) { startTour(); return; }
+    if (a.hasAttribute("data-demo-exit")) { exitDemo(); return; }
+    if (a.hasAttribute("data-share") && navigator.share) {
+      try { await navigator.share({ title: "Hisaab", text: SHARE_TEXT, url: appUrl() }); return; }
+      catch (err) { if (err && err.name === "AbortError") return; }
+    }
+    if (a.hasAttribute("data-share") || a.hasAttribute("data-copy-link")) {
+      const text = a.dataset.copyLink || appUrl();
+      if (await copyText(text)) toast("Link copied. Paste it anywhere to share Hisaab.");
+      else { const o = $("#pfCopyOut"); if (o) { o.textContent = text; o.hidden = false; o.classList.add("sel"); } toast("Copy didn't work here. Select the link shown and copy it."); }
+      return;
+    }
+    if (a.dataset.goto) {
+      setTab(a.dataset.goto);
+      const target = a.dataset.anchor && document.getElementById(a.dataset.anchor);
+      if (target) target.scrollIntoView({ block: "start" }); else window.scrollTo(0, 0);
+    }
+  });
+
+  // ---------- add / edit dialog ----------
+  const dlg = $("#dlg");
+  let editing = null;
+  let fType = "expense";
+  let armTimer;
+
+  function buildCats(selected) {
+    const box = $("#fCats");
+    const chip = (v, l) => `<label class="chip"><input type="radio" name="cat" id="cat-${esc(v)}" value="${esc(v)}"${v === selected ? " checked" : ""}><span>${esc(l)}</span></label>`;
+    if (fType === "income") {
+      box.innerHTML = `<div class="chips">${INCOME_CATS.map((c) => chip(c.id, c.name)).join("")}</div>`;
+      return;
+    }
+    const groups = (S.data.plan.buckets || []).filter((b) => (b.items || []).length).map((b) => `<div class="catgroup"><div class="catlabel"><span class="sw" style="background:${bucketColor(b)}"></span>${esc(b.name)}</div><div class="chips">${(b.items || []).map((it) => chip(it.id, it.name)).join("")}</div></div>`).join("");
+    box.innerHTML = groups + `<div class="catgroup"><div class="catlabel"><span class="sw" style="background:var(--s-other)"></span>Outside plan</div><div class="chips">${chip("other", "Other")}</div></div>`;
+  }
+  function buildGoalChips(itemId, selectedGoal) {
+    const set = $("#fGoalSet");
+    const ref = fType === "expense" ? S.idx.get(itemId) : null;
+    const goals = ref ? (S.data.plan.goals || []).filter((g) => g.bucket === ref.b.id) : [];
+    if (!goals.length) { set.hidden = true; $("#fGoals").innerHTML = ""; return; }
+    const sel = selectedGoal !== undefined ? selectedGoal : ref.it.nogoal ? "" : goals[0].id;
+    const chip = (v, l) => `<label class="chip"><input type="radio" name="goal" id="goal-${esc(v || "none")}" value="${esc(v)}"${v === sel ? " checked" : ""}><span>${esc(l)}</span></label>`;
+    $("#fGoals").innerHTML = goals.map((g) => chip(g.id, g.name)).join("") + chip("", "No goal");
+    set.hidden = false;
+  }
+  function setType(t, keepCat, keepGoal) {
+    fType = t;
+    $("#fTypeX").setAttribute("aria-checked", t === "expense" ? "true" : "false");
+    $("#fTypeI").setAttribute("aria-checked", t === "income" ? "true" : "false");
+    buildCats(keepCat);
+    buildGoalChips(keepCat, keepGoal);
+    $("#fSave").textContent = editing ? "Save changes" : t === "income" ? "Add income" : "Add expense";
+  }
+  function updateHint() {
+    const v = $("#fAmount").value;
+    const n = evalExpr(v);
+    $("#fHint").textContent = hasOp(v) && !Number.isNaN(n) ? `= ${rs(n)}` : "Sums work too, like 349+530";
+  }
+  function resetDelete() {
+    clearTimeout(armTimer);
+    const d = $("#fDelete");
+    d.classList.remove("armed");
+    d.textContent = "Delete";
+  }
+  function showDialog() {
+    $("#fErr").hidden = true;
+    resetDelete();
+    $("#fCurSym").textContent = CUR.sym.trim();
+    if (typeof dlg.showModal === "function") dlg.showModal(); else dlg.setAttribute("open", "");
+    setTimeout(() => $("#fAmount").focus(), 30);
+  }
+  function openAdd() {
+    if (!setupDone()) return;
+    editing = null;
+    $("#dlgTitle").textContent = "Add entry";
+    $("#fDelete").hidden = true;
+    $("#fAmount").value = "";
+    $("#fNote").value = "";
+    $("#fDate").value = defaultDate();
+    setType("expense");
+    updateHint();
+    showDialog();
+  }
+  function openEditById(id) {
+    const e = entriesOf(S.ym).find((x) => x.id === id);
+    if (!e) return;
+    editing = e;
+    $("#dlgTitle").textContent = "Edit entry";
+    $("#fDelete").hidden = false;
+    $("#fAmount").value = String(e.amount);
+    $("#fNote").value = e.note || "";
+    $("#fDate").value = e.date;
+    setType(e.type, e.item, e.goal || "");
+    updateHint();
+    showDialog();
+  }
+  function closeDialog() { if (dlg.open) dlg.close(); editing = null; }
+
+  $("#fab").addEventListener("click", openAdd);
+  $("#dlgClose").addEventListener("click", closeDialog);
+  dlg.addEventListener("click", (e) => { if (e.target === dlg) closeDialog(); });
+  $("#fTypeX").addEventListener("click", () => setType("expense"));
+  $("#fTypeI").addEventListener("click", () => setType("income"));
+  $("#fAmount").addEventListener("input", updateHint);
+  $("#fCats").addEventListener("change", (e) => { if (e.target.name === "cat") buildGoalChips(e.target.value); });
+  for (const b of document.querySelectorAll("[data-day]")) b.addEventListener("click", () => {
+    const d = new Date(); d.setDate(d.getDate() + Number(b.dataset.day)); $("#fDate").value = isoOf(d);
+  });
+  $("#entryForm").addEventListener("submit", (ev) => {
+    ev.preventDefault();
+    const err = (m) => { const p = $("#fErr"); p.textContent = m; p.hidden = false; };
+    const amount = evalExpr($("#fAmount").value);
+    if (!(amount > 0)) return err("Enter an amount above zero.");
+    const cat = document.querySelector('#fCats input[name="cat"]:checked');
+    if (!cat) return err("Pick a category.");
+    const date = $("#fDate").value;
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) return err("Pick a date.");
+    let bucket, label, goal = "";
+    if (fType === "income") { bucket = "income"; label = incomeName(cat.value) || "Income"; }
+    else if (cat.value === "other") { bucket = "other"; label = "Other"; }
+    else {
+      const ref = S.idx.get(cat.value);
+      if (!ref) return err("That category no longer exists. Pick another.");
+      bucket = ref.b.id; label = ref.it.name;
+      const g = document.querySelector('#fGoals input[name="goal"]:checked');
+      goal = g ? g.value : "";
+    }
+    const prev = editing;
+    const entry = { id: prev ? prev.id : newId(), type: fType, amount, date, bucket, item: cat.value, label, goal, note: $("#fNote").value.trim(), createdAt: prev ? prev.createdAt || Date.now() : Date.now() };
+    if (prev && prev.date.slice(0, 7) !== date.slice(0, 7)) {
+      const m = S.data.entries[prev.date.slice(0, 7)];
+      if (m) { delete m[prev.id]; if (!Object.keys(m).length) delete S.data.entries[prev.date.slice(0, 7)]; }
+    }
+    writeEntry(entry);
+    closeDialog();
+    const where = date.slice(0, 7) !== S.ym ? ` in ${monthLong(date.slice(0, 7))}` : "";
+    if (prev) toast("Entry updated" + where);
+    else toast(`Added ${rs(amount)} · ${label}${where}`, () => deleteEntry(entry.id, date.slice(0, 7)));
+  });
+  $("#fDelete").addEventListener("click", () => {
+    const d = $("#fDelete");
+    if (!editing) return;
+    if (!d.classList.contains("armed")) {
+      d.classList.add("armed");
+      d.textContent = "Tap again to delete";
+      clearTimeout(armTimer);
+      armTimer = setTimeout(resetDelete, 4000);
+      return;
+    }
+    const gone = editing;
+    deleteEntry(gone.id, gone.date.slice(0, 7));
+    closeDialog();
+    resetDelete();
+    toast(`Deleted ${labelOf(gone)} · ${rs(gone.amount)}`, () => writeEntry(gone));
+  });
+
+  // fixed-payment quick log
+  $("#p-overview").addEventListener("click", (e) => {
+    const b = e.target.closest("[data-log]");
+    if (!b || !setupDone()) return;
+    const st = stats(S.ym);
+    const date = defaultDate();
+    let entry;
+    if (b.dataset.log === "salary") {
+      entry = { id: newId(), type: "income", amount: +S.data.plan.takeHome || 0, date, bucket: "income", item: "salary", label: "Salary", note: "", createdAt: Date.now() };
+    } else {
+      const ref = S.idx.get(b.dataset.log);
+      if (!ref) return;
+      const f = st.fixed.find((x) => x.it.id === ref.it.id);
+      const g = ref.it.nogoal ? null : (S.data.plan.goals || []).find((x) => x.bucket === ref.b.id);
+      entry = { id: newId(), type: "expense", amount: f ? f.due : +ref.it.planned || 0, date, bucket: ref.b.id, item: ref.it.id, label: ref.it.name, goal: g ? g.id : "", note: "", createdAt: Date.now() };
+    }
+    if (!(entry.amount > 0)) return;
+    writeEntry(entry);
+    toast(`Logged ${entry.label} · ${rs(entry.amount)}`, () => deleteEntry(entry.id, date.slice(0, 7)));
+  });
+
+  // ---------- navigation ----------
+  function setTab(t) {
+    S.tab = t;
+    try { localStorage.setItem("hisaab.tab", t); } catch (e) {}
+    render();
+  }
+  document.querySelector(".tabs").addEventListener("click", (e) => {
+    const b = e.target.closest("[data-tab]");
+    if (b) setTab(b.dataset.tab);
+  });
+  document.querySelector(".tabs").addEventListener("keydown", (e) => {
+    if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+    const tabs = [...document.querySelectorAll(".tab")];
+    const i = tabs.findIndex((x) => x.dataset.tab === S.tab);
+    const n = tabs[(i + (e.key === "ArrowRight" ? 1 : tabs.length - 1)) % tabs.length];
+    setTab(n.dataset.tab);
+    n.focus();
+  });
+  $("#mPrev").addEventListener("click", () => { S.ym = shiftYm(S.ym, -1); render(); });
+  $("#mNext").addEventListener("click", () => { S.ym = shiftYm(S.ym, 1); render(); });
+  $("#mLabel").addEventListener("click", () => { S.ym = thisYm(); render(); });
+  document.addEventListener("keydown", (e) => {
+    if (e.key.toLowerCase() !== "n" || e.metaKey || e.ctrlKey || e.altKey || dlg.open || T.active || !setupDone()) return;
+    const tag = (document.activeElement && document.activeElement.tagName) || "";
+    if (["INPUT", "TEXTAREA", "SELECT"].includes(tag)) return;
+    e.preventDefault();
+    openAdd();
+  });
+  let resizeT;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeT);
+    resizeT = setTimeout(() => { if (setupDone() && (S.tab === "overview" || S.tab === "trends")) render(); }, 150);
+  });
+  // Another tab on this device saved a change.
+  window.addEventListener("storage", (e) => {
+    if (e.key !== KEY || S.dirty || dlg.open) return;
+    S.data = load();
+    setCurrency(S.data?.plan?.currency);
+    reindex();
+    render();
+  });
+
+  // ---------- help ----------
+  function renderHelp() {
+    const K = (label, cls) => `<span class="kbd${cls ? " " + cls : ""}">${esc(label)}</span>`;
+    const row = (btn, what) => `<div><dt>${btn}</dt><dd>${what}</dd></div>`;
+    $("#p-help").innerHTML = `<div class="help">
+      <section class="card wide help-intro"><p>New to Hisaab? The tour points at each part of the app and explains what it does. It takes about a minute.</p><button type="button" class="btn primary" data-tour>Take the tour</button></section>
+      <section class="card">
+        <div class="card-head"><h2>Your monthly routine</h2></div>
+        <ol class="steps">
+          <li><span><b>Log your salary</b> when it arrives: Overview, Fixed payments, ${K("Log")}.</span></li>
+          <li><span><b>Log spending as it happens</b> with ${K("+ Add entry", "blue")}. It takes a few seconds.</span></li>
+          <li><span><b>Tick off fixed payments</b> like rent, SIP and parents with their ${K("Log")} buttons.</span></li>
+          <li><span><b>Check Overview</b> once a week and keep each bucket inside its share.</span></li>
+          <li><span><b>Save a backup</b> on the 1st of every month from Settings.</span></li>
+        </ol>
+      </section>
+      <section class="card">
+        <div class="card-head"><h2>Backup and restore</h2><p class="sub">Your data lives only in this browser on this device.</p></div>
+        <div class="grp">Take a backup</div>
+        <ol class="steps">
+          <li><span>Open the <b>Settings</b> tab and scroll to <b>Your data</b>.</span></li>
+          <li><span>Tap ${K("Save backup file", "blue")}. Keep the file in Files or Google Drive, or email it to yourself.</span></li>
+          <li><span>Or tap ${K("Copy backup code")} and paste the code into a note or a chat with yourself.</span></li>
+        </ol>
+        <div class="grp">Restore, or move to a new phone</div>
+        <ol class="steps">
+          <li><span>Open Hisaab on the new device.</span></li>
+          <li><span>Go to <b>Settings</b>, then <b>Restore</b>. Choose your backup file, or paste the code and tap ${K("Restore pasted code")}.</span></li>
+          <li><span>Tap ${K("Replace my data", "red")}. Your plan, entries and goals come back.</span></li>
+        </ol>
+        <p class="fallback">Overview reminds you when your last backup is more than 30 days old.</p>
+        <p style="margin:12px 0 0"><button type="button" class="btn small" data-goto="profile" data-anchor="bkSec">Go to backup</button></p>
+      </section>
+      <section class="card wide">
+        <div class="card-head"><h2>What each button does</h2></div>
+        <div class="grp">On every screen</div>
+        <dl class="btnmap">
+          ${row(K("+ Add entry", "blue"), "Log an expense or income. Pick a category and date, and add a note if you like. Typing 349+530 adds it up for you. On a computer, press N.")}
+          ${row(K("‹") + K(monthLong(thisYm())) + K("›"), "Move between months. Tap the month name to jump back to this month.")}
+          ${row(K("Undo"), "Shows in the message at the bottom for a few seconds after you add, log or delete something. Tap it to reverse that action.")}
+        </dl>
+        <div class="grp">Overview</div>
+        <dl class="btnmap">
+          ${row(K("Log"), "Next to your salary and each fixed payment. Records the planned amount, dated today, in one tap.")}
+          ${row(K("Back up now", "blue"), "Shows up when you're due a backup. Takes you straight to the backup buttons.")}
+        </dl>
+        <div class="grp">Add entry window</div>
+        <dl class="btnmap">
+          ${row(K("Expense") + K("Income"), "Switch between money going out and money coming in.")}
+          ${row(K("Today") + K("Yesterday"), "Set the date in one tap.")}
+          ${row("Counts toward", "Appears for saving items. Choose which goal the money fills.")}
+          ${row(K("Delete", "red"), "Only when editing an entry. Tap twice to delete.")}
+        </dl>
+        <div class="grp">Passbook</div>
+        <dl class="btnmap">
+          ${row("Filter chips", "Show only income, one bucket, or spending outside your plan. The search box finds notes, categories and amounts.")}
+          ${row("Any line", "Tap it to edit or delete that entry.")}
+          ${row(K("Export CSV"), "Saves every entry as a spreadsheet file.")}
+        </dl>
+        <div class="grp">Plan</div>
+        <dl class="btnmap">
+          ${row(K("Fixed"), "Marks an item you pay once a month. It gets a Log button in Fixed payments.")}
+          ${row(K("Spending") + K("Saving"), "Saving buckets count as money set aside, not spent, and they fill your goals.")}
+          ${row(K("+ Add item") + K("+ Add bucket") + K("+ Add goal"), "Add a line, a whole bucket or a saving goal. The × next to one removes it.")}
+          ${row(K("Fit items to buckets"), "After you change your income or percentages, rescales every item to its bucket's new share.")}
+          ${row(K("Save plan", "blue") + K("Discard"), "Nothing in Plan changes until you tap Save plan. Discard throws your edits away.")}
+        </dl>
+        <div class="grp">Settings</div>
+        <dl class="btnmap">
+          ${row(K("Save backup file", "blue"), "Downloads a copy of all your Hisaab data as a file.")}
+          ${row(K("Copy backup code"), "Copies the same backup as text you can paste anywhere.")}
+          ${row(K("Restore pasted code"), "Brings your data back from a backup. You confirm before anything is replaced.")}
+          ${row(K("Erase everything", "red"), "Deletes all your data from this device. Tap twice. Save a backup first.")}
+          ${row(K("Share Hisaab", "blue"), "Opens your phone's share menu, or copies the link, so you can send Hisaab to a friend.")}
+        </dl>
+      </section>
+      <section class="card wide faq">
+        <div class="card-head"><h2>Good to know</h2></div>
+        <details><summary>Who can see my budget?</summary><p>Only you. Hisaab has no server and no account. Everything is saved in this browser on this device, and nothing you enter is sent anywhere.</p></details>
+        <details><summary>Is Hisaab free?</summary><p>Yes. It's free and open source${LINKS.github ? `, and the code is on <a href="${esc(LINKS.github)}" target="_blank" rel="noopener">GitHub</a>` : ""}. There are no ads and no analytics.</p></details>
+        <details><summary>Why is Hisaab empty on another phone or browser?</summary><p>Each browser keeps its own copy. Open Hisaab in the same browser every time and bookmark it there. A link opened from inside another app, like Instagram or WhatsApp, can open a different browser, so restore your backup if you see an empty Hisaab.</p></details>
+        <details><summary>Why is Free to spend so high at the start of the month?</summary><p>Until you log your salary, Hisaab counts your planned take-home. The number settles once you log what you actually received.</p></details>
+        <details><summary>What's the difference between Spending and Saving buckets?</summary><p>Spending buckets (Needs, Self improvement, Health, Family) show money that's gone. Saving buckets (Investments, Emergency fund) show money you've set aside, and they fill your goals.</p></details>
+        <details><summary>How is Zakat estimated?</summary><p>Enter today's nisab value in Plan. Hisaab adds your goal savings, saving-bucket entries and any other wealth you enter there, and shows 2.5% when the total is above nisab. Confirm the final amount with a scholar.</p></details>
+        <details><summary>Can I switch to the other starting format later?</summary><p>The format only sets your first list of lines. In Plan you can rename, add or remove any line or bucket, so you can reshape it into either format, or your own.</p></details>
+        <details><summary>Can I use a currency other than rupees?</summary><p>Yes. Go to Plan, then Income, then Currency, and save the plan.</p></details>
+        <details><summary>What happens in a private or incognito window?</summary><p>Nothing is kept after you close it. Use a normal browser window.</p></details>
+      </section>
+    </div>`;
+  }
+
+  // ---------- first-time tour ----------
+  const T = { active: false, i: 0 };
+  const TOUR = [
+    { title: () => `Welcome${firstName(S.data.profile.name) ? ", " + firstName(S.data.profile.name) : ""}`, body: "Here's a one-minute tour of what each part of Hisaab does. You can take it again any time from the Help tab." },
+    { tab: "overview", target: ".hero", title: "Free to spend", body: "What's left for this month after spending, savings and fixed payments still due. Until you log your salary, it uses your planned take-home." },
+    { tab: "overview", target: ".fixed", title: "Fixed payments", body: "Your monthly must-pays: salary, rent, SIP, parents. Tap <b>Log</b> when one is paid and it's recorded in one tap. Start by logging your salary." },
+    { tab: "overview", target: "#fab", title: "Add entry", body: "Log every expense or income here. Pick a category and date. Typing 349+530 adds it up for you." },
+    { tab: "overview", target: ".buckets", title: "Where your money goes", body: "Each bucket fills as you spend against its share of your take-home. A red pill means that bucket is over budget." },
+    { tab: "overview", target: ".goal", title: "Saving goals", body: "Money you log under Emergency fund or Investments fills these goals, and Hisaab shows when you'll reach each one." },
+    { tab: "overview", target: ".zakat", title: "Zakat estimate", body: "Enter today's nisab value in Plan and Hisaab estimates 2.5% of your tracked savings." },
+    { tab: "overview", target: ".month-switch", title: "Switch months", body: "Use the arrows to see past months. Tap the month name to come back to this month." },
+    { tab: "overview", target: "#t-passbook", title: "Passbook", body: "Every entry for the month, newest first, like a bank passbook. Tap any line to edit or delete it." },
+    { tab: "overview", target: "#t-trends", title: "Trends", body: "Your last six months by bucket, your biggest expenses and your savings rate." },
+    { tab: "overview", target: "#t-plan", title: "Plan", body: "Change your take-home, bucket percentages, items, goals and nisab. Nothing changes until you tap <b>Save plan</b>." },
+    { tab: "profile", target: "#bkSec", title: "Back up every month", body: "Your data lives only on this device. Tap <b>Save backup file</b> here once a month, or <b>Copy backup code</b> if there's no file button. On a new phone, sign up and use Restore just below." },
+    { tab: "profile", target: "#t-help", title: "Help", body: "The full guide: what every button does, backup steps, and this tour again." },
+    { title: "You're all set", body: "Start by logging your salary in Fixed payments, then add expenses as they happen." },
+  ];
+  function placeTour() {
+    if (!T.active) return;
+    const st = TOUR[T.i];
+    const root = $("#tour"), hole = $("#tourHole"), card = $("#tourCard");
+    const el = st.target ? document.querySelector(st.target) : null;
+    const vw = window.innerWidth, vh = window.innerHeight, m = 8;
+    const cw = card.offsetWidth, ch = card.offsetHeight;
+    if (!el || !el.getClientRects().length) {
+      root.classList.add("center"); hole.hidden = true;
+      card.style.left = Math.max(16, (vw - cw) / 2) + "px";
+      card.style.top = Math.max(16, (vh - ch) / 2) + "px";
+      return;
+    }
+    root.classList.remove("center"); hole.hidden = false;
+    const r = el.getBoundingClientRect(), pad = 6;
+    const top = Math.max(m, r.top - pad), left = Math.max(m, r.left - pad);
+    const bottom = Math.min(vh - m, r.bottom + pad), right = Math.min(vw - m, r.right + pad);
+    Object.assign(hole.style, { top: top + "px", left: left + "px", width: Math.max(0, right - left) + "px", height: Math.max(0, bottom - top) + "px" });
+    const gap = 12;
+    let cy;
+    if (vh - bottom >= ch + gap + 16) cy = bottom + gap;
+    else if (top >= ch + gap + 16) cy = top - gap - ch;
+    else cy = vh - ch - 16;
+    const cx = Math.min(Math.max(16, r.left + r.width / 2 - cw / 2), vw - cw - 16);
+    card.style.left = cx + "px";
+    card.style.top = Math.max(16, cy) + "px";
+  }
+  function showTourStep(i) {
+    T.i = i;
+    const st = TOUR[i];
+    if (st.tab && S.tab !== st.tab) setTab(st.tab);
+    const last = i === TOUR.length - 1;
+    const card = $("#tourCard");
+    card.innerHTML = `<div class="tour-count">${i + 1} of ${TOUR.length}</div>
+      <h3 id="tourTitle">${esc(typeof st.title === "function" ? st.title() : st.title)}</h3>
+      <p>${st.body}</p>
+      <div class="tour-foot">${last ? "" : `<button type="button" class="btn ghost small" data-tour-skip>Skip tour</button>`}<span class="grow"></span>${i > 0 ? `<button type="button" class="btn small" data-tour-back>Back</button>` : ""}<button type="button" class="btn primary small" data-tour-next>${i === 0 ? "Start" : last ? "Finish" : "Next"}</button></div>`;
+    const el = st.target && document.querySelector(st.target);
+    if (el && el.closest(".tabs")) el.scrollIntoView({ block: "nearest", inline: "center" });
+    else if (el && el.getClientRects().length && getComputedStyle(el).position !== "fixed") {
+      const r = el.getBoundingClientRect();
+      if (r.top < 60 || r.bottom > window.innerHeight - 40) el.scrollIntoView({ block: r.height > window.innerHeight * 0.55 ? "start" : "center" });
+    }
+    requestAnimationFrame(() => { placeTour(); const n = card.querySelector("[data-tour-next]"); if (n) n.focus({ preventScroll: true }); });
+  }
+  function startTour() {
+    if (!setupDone()) return;
+    if (dlg.open) closeDialog();
+    T.active = true;
+    $("#tour").hidden = false;
+    if (S.tab !== "overview") setTab("overview");
+    window.scrollTo(0, 0);
+    showTourStep(0);
+  }
+  function endTour() {
+    T.active = false;
+    $("#tour").hidden = true;
+    if (S.data && !S.data.tourDone) { S.data.tourDone = true; persist(); }
+    setTab("overview");
+    window.scrollTo(0, 0);
+  }
+  $("#tour").addEventListener("click", (e) => {
+    const b = e.target.closest("button");
+    if (!b) return;
+    if (b.hasAttribute("data-tour-next")) { if (T.i === TOUR.length - 1) endTour(); else showTourStep(T.i + 1); }
+    else if (b.hasAttribute("data-tour-back")) showTourStep(Math.max(0, T.i - 1));
+    else if (b.hasAttribute("data-tour-skip")) endTour();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (!T.active) return;
+    if (e.key === "Escape") { e.preventDefault(); endTour(); }
+    else if (e.key === "ArrowRight" && T.i < TOUR.length - 1) showTourStep(T.i + 1);
+    else if (e.key === "ArrowLeft" && T.i > 0) showTourStep(T.i - 1);
+  });
+  let tourRaf = 0;
+  const queuePlace = () => { if (!T.active || tourRaf) return; tourRaf = requestAnimationFrame(() => { tourRaf = 0; placeTour(); }); };
+  window.addEventListener("resize", queuePlace);
+  document.addEventListener("scroll", queuePlace, { passive: true });
+
+  // ---------- sample data ----------
+  function seeded(a) {
+    return () => { a = (a + 0x6D2B79F5) | 0; let t = Math.imul(a ^ (a >>> 15), 1 | a); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+  }
+  const DEMO_NOTES = { "Uber": ["Office", "Airport drop", "Late ride home"], "Swiggy/Blinkit": ["Groceries top-up", "Dinner order", "Milk and bread"], "Shopping": ["Clothes", "Home items"], "Dineout": ["Family dinner", "Chai with friends"], "Medicines": ["Pharmacy", "Vitamins"], "Gym/nutrition": ["Protein", "Gym fee"] };
+  function buildDemo() {
+    const rnd = seeded(7);
+    resetOb();
+    Object.assign(OB, { format: "ledger", currency: "INR", takeHome: 85000, efOpening: 45000, g2name: "Umrah fund", g2target: 180000, g2opening: 25000 });
+    OB.pcts = Object.fromEntries(fmtBuckets().map((d) => [d.id, d.pct]));
+    OB.efTarget = roundNice(6 * 85000 * 0.4);
+    const plan = buildPlan();
+    resetOb();
+    const data = { v: 1, demo: true, setupDone: true, createdAt: Date.now(), lastBackupAt: Date.now(), profile: { name: "", joinedAt: Date.now() }, plan, entries: {} };
+    const goalFor = (b, it) => (it.nogoal ? "" : (plan.goals.find((g) => g.bucket === b.id) || {}).id || "");
+    const cur = thisYm(), today = +todayISO().slice(8, 10);
+    let created = Date.now() - 1e9;
+    const add = (e) => { const ym = e.date.slice(0, 7); const body = { ...e, createdAt: created++ }; if (!body.goal) delete body.goal; (data.entries[ym] = data.entries[ym] || {})[newId()] = body; };
+    for (let k = 5; k >= 0; k--) {
+      const ym = shiftYm(cur, -k);
+      const last = ym === cur ? today : daysIn(ym);
+      const day = (d) => `${ym}-${pad(Math.max(1, Math.min(d, last)))}`;
+      add({ type: "income", amount: plan.takeHome, date: day(1), bucket: "income", item: "salary", label: "Salary", note: "" });
+      for (const b of plan.buckets) for (const it of b.items) {
+        const pl = +it.planned || 0;
+        if (!pl) continue;
+        if (it.fixed) {
+          if (ym === cur && rnd() > 0.6) continue;
+          add({ type: "expense", amount: pl, date: day(2 + Math.floor(rnd() * 4)), bucket: b.id, item: it.id, label: it.name, goal: goalFor(b, it), note: "" });
+          continue;
+        }
+        let left = Math.round(pl * (0.7 + rnd() * 0.4) * (ym === cur ? last / daysIn(ym) : 1));
+        const n = Math.max(1, Math.round(left / Math.max(300, pl / 6)));
+        for (let j = 0; j < n && left > 0; j++) {
+          const amt = j === n - 1 ? left : Math.min(left, Math.max(50, Math.round(((left / (n - j)) * (0.6 + rnd() * 0.8)) / 10) * 10));
+          left -= amt;
+          const notes = DEMO_NOTES[it.name] || [""];
+          add({ type: "expense", amount: amt, date: day(1 + Math.floor(rnd() * last)), bucket: b.id, item: it.id, label: it.name, goal: goalFor(b, it), note: notes[Math.floor(rnd() * notes.length)] });
+        }
+      }
+    }
+    return normalize(data);
+  }
+  function startDemo(quiet) {
+    if (setupDone() && !S.data.demo) return; // never replace someone's real budget
+    S.data = buildDemo();
+    S.data.profile.name = "";
+    if (quiet) S.data.tourDone = true;
+    persist();
+    setCurrency("INR");
+    reindex();
+    S.tab = "overview";
+    S.ym = thisYm();
+    render();
+    window.scrollTo(0, 0);
+    if (!quiet) setTimeout(startTour, 300);
+  }
+  function exitDemo() {
+    try { localStorage.removeItem(KEY); } catch (e) {}
+    S.data = null; S.dirty = false; S.draft = null;
+    resetOb(); reindex();
+    S.tab = "overview";
+    render();
+    window.scrollTo(0, 0);
+  }
+
+  // ---------- boot ----------
+  S.storageOk = storageWorks();
+  S.data = load();
+  if (S.data && S.data.profile && !S.data.setupDone) OB.step = 2;
+  setCurrency(S.data?.plan?.currency || "INR");
+  reindex();
+  render();
+  $("#appFoot").innerHTML = footer();
+  if (setupDone() && !S.data.tourDone) setTimeout(startTour, 500);
+  // #demo opens the sample (with the tour); #demo-quiet skips the tour, for screenshots.
+  if (!setupDone() && (hashTab === "demo" || hashTab === "demo-quiet")) startDemo(hashTab === "demo-quiet");
+  (async () => {
+    try {
+      const dl = window.claude && typeof window.claude.use === "function" ? await window.claude.use("downloads") : null;
+      if (dl) {
+        S.dl = dl;
+        for (const b of document.querySelectorAll("[data-needs-dl]")) b.hidden = false;
+        if (setupDone() && S.tab === "passbook") $("#pbExport").hidden = false;
+      }
+    } catch (e) {}
+  })();
+})();
+</script>
+</body>
+</html>
