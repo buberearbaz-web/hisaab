@@ -9,6 +9,8 @@
   <a href="https://buberearbaz-web.github.io/hisaab/"><b>Open Hisaab</b></a>
   &nbsp;·&nbsp;
   <a href="https://buberearbaz-web.github.io/hisaab/#demo">Try it with sample data</a>
+  &nbsp;·&nbsp;
+  <a href="https://www.pinterest.com/buberearbaz/">Follow on Pinterest</a>
 </p>
 
 ![Hisaab overview with sample data](assets/screenshot-desktop.png)
